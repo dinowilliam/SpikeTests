@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeTests", "SpikeTests\SpikeTests.csproj", "{996CA376-1F7B-4FA3-9912-FC807B802B06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpikeTests", "SpikeTests\SpikeTests.csproj", "{996CA376-1F7B-4FA3-9912-FC807B802B06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeTest.Lucene", "SpikeTest.Lucene\SpikeTest.Lucene.csproj", "{AE860200-A7B5-46BE-8AF2-DA1D1D145687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpikeTest.Lucene", "SpikeTest.Lucene\SpikeTest.Lucene.csproj", "{AE860200-A7B5-46BE-8AF2-DA1D1D145687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeTest.SearchEngine", "SpikeTest.SearchEngine\SpikeTest.SearchEngine.csproj", "{D1D893D4-4254-4570-A87B-5F2B6AB5805A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeTest.SearchEngine.Api", "SpikeTest.SearchEngine.Api\SpikeTest.SearchEngine.Api.csproj", "{5D27C14A-8A1A-4665-958A-94CC5FE32965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{AE860200-A7B5-46BE-8AF2-DA1D1D145687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE860200-A7B5-46BE-8AF2-DA1D1D145687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE860200-A7B5-46BE-8AF2-DA1D1D145687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D893D4-4254-4570-A87B-5F2B6AB5805A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D893D4-4254-4570-A87B-5F2B6AB5805A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D893D4-4254-4570-A87B-5F2B6AB5805A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D893D4-4254-4570-A87B-5F2B6AB5805A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D27C14A-8A1A-4665-958A-94CC5FE32965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D27C14A-8A1A-4665-958A-94CC5FE32965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D27C14A-8A1A-4665-958A-94CC5FE32965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D27C14A-8A1A-4665-958A-94CC5FE32965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

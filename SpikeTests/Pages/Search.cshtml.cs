@@ -1,18 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace SpikeTests.Pages
-{
-    public class PrivacyModel : PageModel
-    {
-        private readonly ILogger<PrivacyModel> _logger;
+namespace SpikeTests.UI.Pages {
+    public class SearchModel : PageModel     {
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        private readonly ILogger<SearchModel> _logger;
+
+        public SearchModel(ILogger<SearchModel> logger)
         {
             _logger = logger;
         }

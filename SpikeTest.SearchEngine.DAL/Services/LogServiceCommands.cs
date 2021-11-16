@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using Nelibur.ObjectMapper;
 
-namespace MicroservicesSpike.DAL.Services {
+namespace SpikeTest.SearchEngine.DAL.Services {
 
-    using MicroservicesSpike.DAL.Infra.Contexts;
-    using MicroservicesSpike.DAL.Infra.Contracts;
-    using MicroservicesSpike.DAL.Repositorys;
-    using MicroservicesSpike.DAL.Repositorys.Models;
-    using MicroservicesSpike.DAL.Services.Contracts;
+    using SpikeTest.SearchEngine.DAL.Infra.Contexts;
+    using SpikeTest.SearchEngine.DAL.Infra.Contracts;
+    using SpikeTest.SearchEngine.DAL.Repositorys;
+    using SpikeTest.SearchEngine.DAL.Repositorys.Models;
+    using SpikeTest.SearchEngine.DAL.Services.Contracts;
     using MicroservicesSpike.Domain.Entities;    
 
     public class LogServiceCommands : ILogServiceCommands   {

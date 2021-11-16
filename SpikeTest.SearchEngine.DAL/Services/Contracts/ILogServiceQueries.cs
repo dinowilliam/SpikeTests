@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MicroservicesSpike.DAL.Services.Contracts {
+namespace SpikeTest.SearchEngine.DAL.Services.Contracts {
     public interface ILogServiceQueries    {        
         public IEnumerable<LogMessage> GetAll();
         public LogMessage GetById(Guid id);

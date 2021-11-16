@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MicroservicesSpike.DAL.Services.Contracts {
+namespace SpikeTest.SearchEngine.DAL.Services.Contracts {
 
     using MicroservicesSpike.Domain.Entities;
 

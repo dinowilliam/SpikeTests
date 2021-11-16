@@ -1,12 +1,12 @@
-﻿using MicroservicesSpike.DAL.Infra.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System;
 
 #nullable disable
 
-namespace MicroservicesSpike.DAL.Repositorys.Models
+namespace SpikeTest.SearchEngine.DAL.Repositorys.Models
 {
+
+    using SpikeTest.SearchEngine.DAL.Infra.Contracts;
+
     public partial class LogPersistance : IEntity {
         public Guid Id { get; set; }        
         public DateTime? OccurrenceeDate { get; set; }

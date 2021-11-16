@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MicroservicesSpike.Utils {
+namespace SpikeTest.SearchEngine.Utils {
     public static class LogMessageTestHelper {
 
         public static string Title {

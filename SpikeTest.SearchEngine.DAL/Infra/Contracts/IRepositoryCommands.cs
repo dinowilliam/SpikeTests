@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MicroservicesSpike.DAL.Infra.Contracts {
+namespace SpikeTest.SearchEngine.DAL.Infra.Contracts {
     public interface IRepositoryCommands<TEntity> where TEntity : class, IEntity {
         
         int Insert(TEntity entity);

@@ -1,17 +1,18 @@
-﻿using MicroservicesSpike.Application.Contracts;
-using MicroservicesSpike.DAL.Services.Contracts;
-using MicroservicesSpike.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace MicroservicesSpike.Application {
-    public class LogApplication : ILogApplication  {
+namespace SpikeTest.SearchEngine.Service {
+
+    using SpikeTest.SearchEngine.DAL.Services.Contracts;
+    using SpikeTest.SearchEngine.Domain.Entities;
+    using SpikeTest.SearchEngine.Service.Contracts;
+    public class SearchService : ISearchService  {
         
         private readonly ILogServiceCommands logServiceCommands;
         private readonly ILogServiceQueries logServiceQueries;
-        public LogApplication(ILogServiceCommands logServiceCommands, ILogServiceQueries logServiceQueries) {
+        public SearchService(ILogServiceCommands logServiceCommands, ILogServiceQueries logServiceQueries) {
 
             this.logServiceCommands = logServiceCommands;
             this.logServiceQueries = logServiceQueries;

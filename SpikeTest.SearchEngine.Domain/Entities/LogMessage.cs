@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MicroservicesSpike.Domain.Entities
+namespace SpikeTest.SearchEngine.Domain.Entities
 {
     public class LogMessage {
 

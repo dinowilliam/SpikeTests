@@ -1,8 +1,8 @@
-﻿using MicroservicesSpike.DAL.Repositorys.Models;
+﻿using SpikeTest.SearchEngine.DAL.Repositorys.Models;
 using Microsoft.EntityFrameworkCore;
 
 #nullable disable
-namespace MicroservicesSpike.DAL.Infra.Contexts
+namespace SpikeTest.SearchEngine.DAL.Infra.Contexts
 {
     public partial class MicroservicesSpikeCommandsContext : DbContext {
                 

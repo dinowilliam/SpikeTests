@@ -1,9 +1,11 @@
-﻿using MicroservicesSpike.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace MicroservicesSpike.Application.Contracts {
-    public interface ILogApplication {
+namespace SpikeTest.SearchEngine.Service.Contracts {
+
+    using SpikeTest.SearchEngine.Domain.Entities;
+
+    public interface ISearchService {
         public int Save(LogMessage log);                
         public int Delete(Guid id);
         public IEnumerable<LogMessage> GetAll();

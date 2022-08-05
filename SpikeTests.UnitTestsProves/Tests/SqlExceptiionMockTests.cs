@@ -28,7 +28,7 @@ namespace SpikeTests.UnitTestsProves.Tests {
 
         private SqlException GetSqlException() {
             SqlErrorCollection collection = Construct<SqlErrorCollection>();
-            SqlError error = Construct<SqlError>(-2, (byte)2, (byte)3, "Servername", "Error Message For SQLServer Test", "proc", 100, (uint)1, new Exception());
+            SqlError error = Construct<SqlError>(-2, (byte)2, (byte)3, "ServerName", "Error Message For SQLServer Test", "proc", 100, (uint)1, new Exception());
 
             typeof(SqlErrorCollection)
                 .GetMethod("Add", BindingFlags.NonPublic | BindingFlags.Instance)
@@ -78,6 +78,14 @@ namespace SpikeTests.UnitTestsProves.Tests {
 
         [TearDown]
         public void TearDown() {
+            mockConfigSqlExceptionThrower = null;
+            sqlExceptionThrower = null;
+
+            sqlException = null;
+
+            parameter = String.Empty;
+            stringReturn = String.Empty;
+
         }
     }
 }

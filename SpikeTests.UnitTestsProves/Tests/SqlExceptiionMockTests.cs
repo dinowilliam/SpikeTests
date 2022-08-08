@@ -38,7 +38,9 @@ namespace SpikeTests.UnitTestsProves.Tests {
                 .GetMethod("CreateException", BindingFlags.NonPublic | BindingFlags.Static, null, CallingConventions.ExplicitThis, new[] { typeof(SqlErrorCollection), typeof(string) }, new ParameterModifier[] { })
                 .Invoke(null, new object[] { collection, "11.0.0" }) as SqlException;
 
+
             return sqlException;
+
         }
 
         private T Construct<T>(params object[] p) {
@@ -84,7 +86,7 @@ namespace SpikeTests.UnitTestsProves.Tests {
             sqlException = null;
 
             parameter = String.Empty;
-            stringReturn = String.Empty;
+            stringReturn = "Worked";
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using SpikeTests.Infra.Support.CircuitBreaker.Contracts;
+using SpikeTests.Infra.Support.CircuitBreaker.Exceptions;
 using SpikeTests.Infra.Support.CircuitBreaker.Factories;
 
 namespace SpikeTests.Infra.Support.CircuitBreaker {
@@ -8,6 +9,12 @@ namespace SpikeTests.Infra.Support.CircuitBreaker {
 
         private readonly object halfOpenSyncObject = new object();
 
+        private TimeSpan OpenToHalfOpenWaitTime;
+
+        public CircuitBreaker(int ticks) {
+            OpenToHalfOpenWaitTime = new TimeSpan(ticks);
+        }        
+        
         public bool IsClosed => stateStore.IsClosed;
 
         public bool IsOpen => !stateStore.IsClosed;

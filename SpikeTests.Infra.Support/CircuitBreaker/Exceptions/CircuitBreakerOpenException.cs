@@ -3,13 +3,13 @@
 namespace SpikeTests.Infra.Support.CircuitBreaker.Exceptions {
     [Serializable]
     internal class CircuitBreakerOpenException : Exception {
-        private Exception lastException;
+        private Exception circuitBreakerOpenException;
 
         public CircuitBreakerOpenException() {
         }
 
         public CircuitBreakerOpenException(Exception lastException) {
-            this.lastException = lastException;
+            this.circuitBreakerOpenException = lastException;
         }
 
         public CircuitBreakerOpenException(string? message) : base(message) {

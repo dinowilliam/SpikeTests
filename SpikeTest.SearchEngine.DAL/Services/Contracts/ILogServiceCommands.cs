@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SpikeTest.SearchEngine.DAL.Services.Contracts {
 
-    using MicroservicesSpike.Domain.Entities;
+    using SpikeTest.SearchEngine.Domain.Entities;
 
     public interface ILogServiceCommands  {
         public int Save(LogMessage log);        

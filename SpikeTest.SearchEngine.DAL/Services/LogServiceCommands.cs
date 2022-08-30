@@ -9,7 +9,7 @@ namespace SpikeTest.SearchEngine.DAL.Services {
     using SpikeTest.SearchEngine.DAL.Repositorys;
     using SpikeTest.SearchEngine.DAL.Repositorys.Models;
     using SpikeTest.SearchEngine.DAL.Services.Contracts;
-    using MicroservicesSpike.Domain.Entities;    
+    using SpikeTest.SearchEngine.Domain.Entities;    
 
     public class LogServiceCommands : ILogServiceCommands   {
 

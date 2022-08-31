@@ -8,16 +8,16 @@ namespace SpikeTests.Infra.Support.CircuitBreaker.Stores {
             State = CircuitBreakerStateEnum.Closed;         
         }
 
-        public CircuitBreakerStateEnum State { get => State; internal set => State = value; }
+        public CircuitBreakerStateEnum State { get; internal set; }
 
-        public Exception LastException { get => LastException; internal set => LastException = value; }
+        public Exception LastException { get; internal set; }
 
-        public DateTime LastStateChangedDateUtc { get => LastStateChangedDateUtc; internal set => LastStateChangedDateUtc = value; }
+        public DateTime LastStateChangedDateUtc { get; internal set ; }
 
         public bool IsClosed { get => State == CircuitBreakerStateEnum.Closed ? true: false; }
 
         public void HalfOpen() {
-            State = CircuitBreakerStateEnum.HalOpen;
+            State = CircuitBreakerStateEnum.HalfOpen;
         }
 
         public void Reset() {

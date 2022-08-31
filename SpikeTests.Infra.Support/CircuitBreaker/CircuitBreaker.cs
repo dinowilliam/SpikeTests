@@ -15,7 +15,7 @@ namespace SpikeTests.Infra.Support.CircuitBreaker {
             OpenToHalfOpenWaitTime = new TimeSpan(ticks);
         }        
         
-        public bool IsClosed => stateStore.IsClosed;
+        public bool IsClosed => stateStore.IsClosed;        
 
         public bool IsOpen => !stateStore.IsClosed;
 

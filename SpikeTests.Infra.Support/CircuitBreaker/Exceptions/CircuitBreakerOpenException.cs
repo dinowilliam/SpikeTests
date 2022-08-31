@@ -2,7 +2,7 @@
 
 namespace SpikeTests.Infra.Support.CircuitBreaker.Exceptions {
     [Serializable]
-    internal class CircuitBreakerOpenException : Exception {
+    public class CircuitBreakerOpenException : Exception {
         private Exception circuitBreakerOpenException;
 
         public CircuitBreakerOpenException() {

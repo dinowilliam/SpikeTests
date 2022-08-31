@@ -44,8 +44,7 @@ namespace SpikeTests.UnitTestsProves.Tests {
         [Test]
         public void CircuitBreaker_WhenTheConnectionToRemoteService_IsClosed() {
 
-            //Arrange            
-            httpClientSubjectConfig.Setup(client => client.Request(streamToSend)).Throws(new Exception());
+            //Arrange                        
             httpClientSubjectConfig.Setup(client => client.Request("")).Returns("Finished");
             httpClientSubject = httpClientSubjectConfig.Object;
 

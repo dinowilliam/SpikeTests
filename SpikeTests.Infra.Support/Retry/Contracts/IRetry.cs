@@ -1,5 +1,5 @@
 ﻿namespace SpikeTests.Infra.Support.Retry.Contracts {
     public interface IRetry  {
-        Action Do(Action action, TimeSpan interval, int maxAttempts);
+        void Do(Action action, int interval, int maxAttempts);
     }
 }

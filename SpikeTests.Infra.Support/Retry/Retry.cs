@@ -7,30 +7,34 @@ namespace SpikeTests.Infra.Support.Retry
 
         int interation;
         List<Exception> exceptionList;
+        TimeSpan intervalInMilleseconds;
 
         public Retry() { 
             interation = 0;
             exceptionList = new List<Exception>();
         }
 
-        public Action Do(Action action, TimeSpan interval, int maxAttempts) {
+        public void Do(Action action, int interval, int maxAttempts) {
+
+            intervalInMilleseconds = new TimeSpan(0, 0, 0, 0, interval);
 
             while (interation < maxAttempts) {
+                
+                interation++;
 
                 try {
-
-                    return action;
+                    action();
                 }
                 catch (CircuitBreakerOpenException cboex) {
                     exceptionList.Add(cboex);
-                    break;
+                    throw new AggregateException(exceptionList);                    
                 }
                 catch (Exception ex) {
 
                     exceptionList.Add(ex);
                 }
 
-                Thread.Sleep(interval);
+                Thread.Sleep(intervalInMilleseconds);
             }
 
             throw new AggregateException(exceptionList);

@@ -1,9 +1,11 @@
 using FluentAssertions;
 using Moq;
-using SpikeTests.Infra.Support.Workflow;
-using SpikeTests.Infra.Support.Workflow.Contracts;
 
 namespace SpikeTests.UnitTestsProves.Tests {
+
+    using SpikeTests.Infra.Support.Workflow;
+    using SpikeTests.Infra.Support.Workflow.Contracts;
+
     public class MaestroTests {
 
         IMaestro maestro;
@@ -50,11 +52,11 @@ namespace SpikeTests.UnitTestsProves.Tests {
         public void Maestro_WhenTheWorflowRunsAndIsRunning_IsTrue() {
 
             //Arrange                                    
-            mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Callback(() => Thread.Sleep(5000)).Returns(true);
+            mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Callback(async () => Task.Delay(15000)).Returns(true);
             mockFluxQueue = mockConfigFluxQueue.Object;
             maestro = new Maestro(mockFluxQueue);
 
-            //Act
+            //Act            
             maestro.Run();
             var result = maestro.IsRunning;
 

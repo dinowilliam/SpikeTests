@@ -16,19 +16,21 @@ namespace SpikeTests.Infra.Support.Workflow {
         public TimeOnly RunningTime => throw new NotImplementedException();
 
         public bool Run() {
+            bool wasProcessed = false;
 
             try {
                 this.IsRunningNow = true;
 
-                return fluxQueue.ProcessQueue();
+                wasProcessed = fluxQueue.ProcessQueue();
+
+                this.IsRunningNow = false;
+
+                return wasProcessed;
             }
             catch (Exception ex) {
 
-                throw ex;                
-            }
-            finally {
-                this.IsRunningNow = false;
-            }
+                throw ex;
+            }            
             
         }
     }

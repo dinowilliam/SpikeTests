@@ -3,8 +3,12 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "twitter-bootstrap@5.1.1",
+      "library": "twitter-bootstrap@5.2.3",
       "destination": "wwwroot/lib/bootstrap/dist/"
+    },
+    {
+      "library": "vue@3.2.47",
+      "destination": "wwwroot/lib/vue/"
     }
   ]
 }

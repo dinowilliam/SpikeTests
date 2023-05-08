@@ -5,17 +5,11 @@
 }
 
 <div class="text-center">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div id="logo"><img src="~/img/lucene-net-color.png" /></div>
-    <br />
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" id="search" name="search" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-    </div>
-    <br />
-    <button type="button" class="btn btn-lg btn-dark col-md-4">Search</button>
+    <div id="mainAppSearch"></div>
 </div>
+
+@section scripts{
+    <script type="text/javascript" src="~/lib/vue/vue.global.js"></script>
+    <link rel="stylesheet" href="~/css/search.css">
+    <script type="text/javascript" src="~/js/vueappsearch.js.umd.js"></script>
+}

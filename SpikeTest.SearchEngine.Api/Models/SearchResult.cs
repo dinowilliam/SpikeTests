@@ -1,8 +1,8 @@
 using System;
 
-namespace SpikeTest.SearchEngine.Api
+namespace SpikeTest.SearchEngine.Api.Models
 {
-    public class WeatherForecast
+    public class SearchResult
     {
         public DateTime Date { get; set; }
 

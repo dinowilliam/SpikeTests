@@ -11,12 +11,7 @@ namespace SpikeTest.SearchEngine.Api.Controllers
     [ApiController]
     [Route("[controller]")]
     public class SearchController : ControllerBase
-    {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
+    {        
         private readonly ILogger<SearchController> _logger;
 
         public SearchController(ILogger<SearchController> logger)
@@ -28,10 +23,10 @@ namespace SpikeTest.SearchEngine.Api.Controllers
         public IEnumerable<SearchResult> GetSearchResults(Search search)
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new SearchResult {
+            return Enumerable.Range(1, 500).Select(index => new SearchResult {
                 Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             })
             .ToArray();
         }

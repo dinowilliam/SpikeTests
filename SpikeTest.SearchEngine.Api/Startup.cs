@@ -20,6 +20,7 @@ namespace SpikeTest.SearchEngine.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -36,6 +37,12 @@ namespace SpikeTest.SearchEngine.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpikeTest.SearchEngine.Api v1"));
             }
+
+            app.UseCors(cors => { cors
+                                    .AllowAnyOrigin()
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
 

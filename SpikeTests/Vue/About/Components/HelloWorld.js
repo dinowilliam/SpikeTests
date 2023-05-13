@@ -1,14 +1,17 @@
 import { __decorate } from "tslib";
-import { Options, Vue } from 'vue-class-component';
+import { Options, Vue } from "vue-class-component";
 let HelloWorld = class HelloWorld extends Vue {
-    msg;
+  msg;
 };
-HelloWorld = __decorate([
+HelloWorld = __decorate(
+  [
     Options({
-        props: {
-            msg: String
-        }
-    })
-], HelloWorld);
+      props: {
+        msg: String,
+      },
+    }),
+  ],
+  HelloWorld
+);
 export default HelloWorld;
 //# sourceMappingURL=HelloWorld.js.map

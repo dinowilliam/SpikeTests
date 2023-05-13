@@ -1,25 +1,49 @@
-import { defineComponent as h, openBlock as o, createElementBlock as i, Fragment as d, renderList as m, createElementVNode as t, toDisplayString as c, createTextVNode as y, resolveComponent as f, withModifiers as v, withDirectives as b, vModelText as S, createCommentVNode as _, createBlock as P, createApp as $ } from "vue";
-const k = h({
+var b = Object.defineProperty;
+var v = (e, t, n) => t in e ? b(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
+var m = (e, t, n) => (v(e, typeof t != "symbol" ? t + "" : t, n), n);
+import { defineComponent as u, openBlock as o, createElementBlock as a, Fragment as h, renderList as _, createElementVNode as s, toDisplayString as p, createTextVNode as S, resolveComponent as P, withModifiers as $, withDirectives as w, vModelText as R, createCommentVNode as f, createBlock as y, createApp as k } from "vue";
+class C {
+  constructor() {
+    m(this, "pageNumber");
+  }
+}
+const N = u({
   name: "SearchResults",
-  props: { response: Array },
+  props: {
+    response: {
+      type: Array,
+      required: !0
+    }
+  },
   data() {
     return {
       offset: Number,
-      currentPage: 1,
-      itemsPerPage: 7,
-      pageOfItems: this.response.slice(0, 7)
+      currentPage: Number,
+      itemsPerPage: 6,
+      pageOfItems: this.response.slice(0, 6)
     };
   },
   methods: {
     async onPageChange(e) {
-      e != 1 && (this.currentPage = e), this.offset = (e - 1) * this.itemsPerPage + 1 - 1, this.pageOfItems = await this.response.slice(this.offset, this.offset + this.itemsPerPage);
-    },
-    *range(e, s, r = 1) {
-      for (let a = e; a <= s; a += r)
-        yield a;
+      this.currentPage = e, this.offset = (e - 1) * this.itemsPerPage + 1 - 1, this.pageOfItems = await this.response.slice(
+        this.offset,
+        this.offset + this.itemsPerPage
+      ), console.log("Internal Page: " + e), console.log("Current Page: " + this.currentPage);
     }
   },
   computed: {
+    rows() {
+      return this.response.length;
+    },
+    pages() {
+      let e;
+      e = new Array();
+      for (let t = this.startPageRange; t <= this.endPageRange; t += 1) {
+        let n = new C();
+        n.pageNumber = t, e.push(n);
+      }
+      return e;
+    },
     pageQuantity() {
       return Math.ceil(this.response.length / this.itemsPerPage);
     },
@@ -29,84 +53,72 @@ const k = h({
     nextPage() {
       return this.currentPage < this.pageQuantity ? this.currentPage + 1 : this.pageQuantity();
     },
-    starterPageRange() {
+    startPageRange: function() {
       let e;
-      return (this.currentPage = 1) && (e = 1), e;
+      return (this.currentPage = 1) && (e = 1), this.currentPage > 1 && (e = this.currentPage + 1), e;
     },
-    endPageRange() {
-      let e;
-      return this.currentPage <= this.pageQuantity && (e = this.currentPage + 20), e;
+    endPageRange: function() {
+      return this.startPageRange + 40;
     }
   }
 });
-const u = (e, s) => {
-  const r = e.__vccOpts || e;
-  for (const [a, p] of s)
-    r[a] = p;
-  return r;
-}, R = { class: "text-start" }, w = { class: "d-flex text-body-secondary pt-3" }, C = /* @__PURE__ */ t("svg", {
-  class: "bd-placeholder-img flex-shrink-0 me-2 rounded",
-  width: "32",
-  height: "32",
-  xmlns: "http://www.w3.org/2000/svg",
-  role: "img",
-  "aria-label": "Placeholder: 32x32",
-  preserveAspectRatio: "xMidYMid slice",
-  focusable: "false"
-}, [
-  /* @__PURE__ */ t("title", null, "Placeholder"),
-  /* @__PURE__ */ t("rect", {
-    width: "100%",
-    height: "100%",
-    fill: "#007bff"
-  }),
-  /* @__PURE__ */ t("text", {
-    x: "50%",
-    y: "50%",
-    fill: "#007bff",
-    dy: ".3em"
-  }, "32x32")
-], -1), x = { class: "pb-3 mb-0 small lh-sm border-bottom" }, A = { class: "d-block text-gray-dark" }, O = { class: "d-block text-gray-dark" }, F = { "aria-label": "Page navigation example" }, N = { class: "pagination justify-content-center" }, M = { class: "page-item disabled" }, Q = { class: "page-item" }, T = ["onClick"], V = { class: "page-item" };
-function j(e, s, r, a, p, g) {
-  return o(), i("div", null, [
-    (o(!0), i(d, null, m(e.pageOfItems, (n, l) => (o(), i("div", R, [
-      t("div", w, [
-        C,
-        t("p", x, [
-          t("p", null, c(n.url), 1),
-          t("strong", A, c(n.date), 1),
-          t("strong", O, c(n.summary), 1),
-          y(" " + c(n.description), 1)
+const d = (e, t) => {
+  const n = e.__vccOpts || e;
+  for (const [c, l] of t)
+    n[c] = l;
+  return n;
+}, A = { class: "text-start" }, O = { class: "d-flex text-body-secondary pt-3" }, F = /* @__PURE__ */ s("span", { class: "me-1" }, [
+  /* @__PURE__ */ s("img", {
+    src: " https://www.dinowilliam.com/lib/assets/logo.png",
+    height: "16",
+    width: "72",
+    loading: "lazy"
+  })
+], -1), x = { class: "pb-3 mb-0 small lh-sm border-bottom" }, I = { class: "h6" }, T = ["href"], V = { "aria-label": "Page navigation example" }, j = { class: "pagination justify-content-center" }, q = { class: "page-item disabled" }, B = { class: "page-item" }, M = ["onClick"], Q = { class: "page-item" };
+function D(e, t, n, c, l, g) {
+  return o(), a("div", null, [
+    (o(!0), a(h, null, _(e.pageOfItems, (r, i) => (o(), a("div", A, [
+      s("div", O, [
+        F,
+        s("p", x, [
+          s("p", I, p(r.url), 1),
+          s("p", null, [
+            s("a", {
+              class: "h4",
+              href: r.url
+            }, p(r.title), 9, T)
+          ]),
+          S(" " + p(r.description), 1)
         ])
       ])
     ]))), 256)),
-    t("nav", F, [
-      t("ul", N, [
-        t("li", M, [
-          t("a", {
+    s("nav", V, [
+      s("ul", j, [
+        s("li", q, [
+          s("a", {
             class: "page-link",
-            onClick: s[0] || (s[0] = (n) => e.onPageChange(e.previousPage))
+            onClick: t[0] || (t[0] = (r) => e.onPageChange(e.previousPage))
           }, "Previous")
         ]),
-        (o(!0), i(d, null, m(e.range(e.starterPageRange, e.endPageRange), (n) => (o(), i("li", Q, [
-          t("a", {
+        (o(!0), a(h, null, _(e.pages, (r) => (o(), a("li", B, [
+          s("a", {
             class: "page-link",
-            onClick: (l) => e.onPageChange(n)
-          }, c(n), 9, T)
+            onClick: (i) => e.onPageChange(r.pageNumber)
+          }, p(r.pageNumber), 9, M)
         ]))), 256)),
-        t("li", V, [
-          t("a", {
+        s("li", Q, [
+          s("a", {
             class: "page-link",
-            onClick: s[1] || (s[1] = (n) => e.onPageChange(e.nextPage))
+            onClick: t[1] || (t[1] = (r) => e.onPageChange(e.nextPage))
           }, "Next")
         ])
       ])
     ])
   ]);
 }
-const B = /* @__PURE__ */ u(k, [["render", j]]), I = h({
+const E = /* @__PURE__ */ d(N, [["render", D]]), z = u({
   name: "SearchForm",
-  components: { SearchResults: B },
+  components: { SearchResults: E },
   data() {
     return {
       prompt: "",
@@ -119,12 +131,12 @@ const B = /* @__PURE__ */ u(k, [["render", j]]), I = h({
       var e = {
         Prompt: this.prompt
       };
-      const s = {
+      const t = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(e)
       };
-      return console.log(prompt), fetch("https://localhost:44354/Search", s).then((r) => r.json()).then((r) => (this.dataResponse = r, this.showSearch = !1));
+      return console.log(prompt), fetch("https://localhost:44354/Search", t).then((n) => n.json()).then((n) => (this.dataResponse = n, this.showSearch = !1));
     }
   },
   computed: {
@@ -133,29 +145,29 @@ const B = /* @__PURE__ */ u(k, [["render", j]]), I = h({
     }
   }
 });
-const q = {
+const J = {
   key: 0,
   class: "container-fluid mt-5"
-}, D = /* @__PURE__ */ t("div", { class: "pt-5 pb-5" }, null, -1), E = /* @__PURE__ */ t("div", {
+}, L = /* @__PURE__ */ s("div", { class: "pt-5 pb-5" }, null, -1), U = /* @__PURE__ */ s("div", {
   class: "mt-5",
   id: "logo"
 }, [
-  /* @__PURE__ */ t("img", { src: "/img/lucene-net-color.png" })
-], -1), J = { class: "input-group pt-5 mb-3" }, L = /* @__PURE__ */ t("button", {
+  /* @__PURE__ */ s("img", { src: "/img/lucene-net-color.png" })
+], -1), G = { class: "input-group pt-5 mb-3" }, H = /* @__PURE__ */ s("button", {
   type: "submit",
   class: "btn btn-lg btn-dark col-md-4"
 }, "Search", -1);
-function U(e, s, r, a, p, g) {
-  const n = f("SearchResults");
-  return o(), i(d, null, [
-    e.showSearch ? (o(), i("div", q, [
-      D,
-      E,
-      t("form", {
-        onSubmit: s[1] || (s[1] = v((...l) => e.sendSearch && e.sendSearch(...l), ["prevent"]))
+function K(e, t, n, c, l, g) {
+  const r = P("SearchResults");
+  return o(), a(h, null, [
+    e.showSearch ? (o(), a("div", J, [
+      L,
+      U,
+      s("form", {
+        onSubmit: t[1] || (t[1] = $((...i) => e.sendSearch && e.sendSearch(...i), ["prevent"]))
       }, [
-        t("div", J, [
-          b(t("input", {
+        s("div", G, [
+          w(s("input", {
             type: "text",
             class: "form-control",
             id: "search",
@@ -163,30 +175,31 @@ function U(e, s, r, a, p, g) {
             placeholder: "",
             "aria-label": "",
             "aria-describedby": "",
-            "onUpdate:modelValue": s[0] || (s[0] = (l) => e.prompt = l),
+            "onUpdate:modelValue": t[0] || (t[0] = (i) => e.prompt = i),
             required: ""
           }, null, 512), [
-            [S, e.prompt]
+            [R, e.prompt]
           ])
         ]),
-        L
+        H
       ], 32)
-    ])) : _("", !0),
-    e.showResults ? (o(), P(n, {
+    ])) : f("", !0),
+    e.showResults ? (o(), y(r, {
       key: 1,
       response: e.dataResponse
-    }, null, 8, ["response"])) : _("", !0)
+    }, null, 8, ["response"])) : f("", !0)
   ], 64);
 }
-const Y = /* @__PURE__ */ u(I, [["render", U]]), z = h({
+const W = /* @__PURE__ */ d(z, [["render", K]]), X = u({
   name: "App",
   components: {
-    SearchForm: Y
+    SearchForm: W
   }
 });
-function G(e, s, r, a, p, g) {
-  const n = f("SearchForm");
-  return o(), P(n);
+function Y(e, t, n, c, l, g) {
+  const r = P("SearchForm");
+  return o(), y(r);
 }
-const H = /* @__PURE__ */ u(z, [["render", G]]);
-$(H).mount("#mainAppSearch");
+const Z = /* @__PURE__ */ d(X, [["render", Y]]);
+k(Z).mount("#mainAppSearch");
+//# sourceMappingURL=vueappsearch.js.mjs.map

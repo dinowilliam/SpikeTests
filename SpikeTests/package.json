@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "scripts": {
-    "dev": "vite",
+  "scripts": {    
     "build": "run-p type-check build-only",
-    "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
     "build:about": "cross-env LIB_NAME=about vite build",
     "build:search": "cross-env LIB_NAME=search vite build",
@@ -39,7 +37,7 @@
     "vitest": "^0.23.0",
     "vue-tsc": "^0.40.7"
   },
-  "-vs-binding": {
+  "-vs-binding": {   
     "BeforeBuild": [
       "build"
     ]

@@ -11,41 +11,42 @@ export default defineComponent({
     },
     data() {
         return {
-            offset: Number,
             currentPage: Number,
+            offset: Number,
             itemsPerPage: 6,
+            pagesPagination: Array<Page>,
             pageOfItems: this.response.slice(0, 6)
         };
-    },
+    }, 
     methods: {
         async onPageChange(page: number) {
 
-            this.currentPage = page;
+            this.currentPage = (page * 1);
             this.offset = (page - 1) * this.itemsPerPage + 1 - 1;
             this.pageOfItems = await this.response.slice(
                 this.offset,
                 this.offset + this.itemsPerPage
             );
-            console.log("Internal Page: " + page);
-            console.log("Current Page: " + this.currentPage);
-        }       
+
+            this.mountPages();
+        },
+        mountPages() {
+            this.pagesPagination = new Array<Page>();
+
+            for (let i = this.startPageRange; i <= this.endPageRange; i += 1) {
+                let page = new Page();
+                page.pageNumber = i
+                this.pagesPagination.push(page);
+            }
+        }
     },
     computed: {
         rows() {
             return this.response.length;
         },
         pages() {
-            let pages: Array<Page>;            
-            
-            pages = new Array<Page>();
-            
-            for (let i = this.startPageRange; i <= this.endPageRange; i += 1) {
-                let page = new Page();
-                page.pageNumber = i
-                pages.push(page);
-            }
-
-            return pages;
+            this.mountPages();
+            return this.pagesPagination;
         },
         pageQuantity() {
             return Math.ceil(this.response.length / this.itemsPerPage);
@@ -56,22 +57,24 @@ export default defineComponent({
         nextPage() {
             return this.currentPage < this.pageQuantity
                 ? this.currentPage + 1
-                : this.pageQuantity();
+                : this.pageQuantity;
         },
         startPageRange: function () {
             let startRange: number;
 
-            if ((this.currentPage = 1)) {
-                startRange = 1;
-            }
-            if (this.currentPage > 1) {
-                startRange = this.currentPage + 1;
-            }
+            startRange = this.currentPage <= 21 ? 1 : this.currentPage - 20;
 
             return startRange;
         },
         endPageRange: function () {
-            return this.startPageRange + 40;
+            let endRange: number;
+
+            endRange = this.currentPage + 21 >= this.pageQuantity ? this.pageQuantity : this.currentPage + 20;
+
+            return endRange
         }
+    },
+    mounted() {
+        this.currentPage = 1;
     }
 });

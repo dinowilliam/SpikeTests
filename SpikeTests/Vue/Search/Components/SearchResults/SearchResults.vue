@@ -15,7 +15,7 @@
                 <li class="page-item disabled">
                     <a class="page-link" @click="onPageChange(previousPage)">Previous</a>
                 </li>
-                <li class="page-item" v-for="page in pages">
+                <li class="page-item" v-for="page in pagesPagination">
                     <a class="page-link" @click="onPageChange(page.pageNumber)">{{ page.pageNumber }}</a>
                 </li>
                 <li class="page-item">

@@ -12,14 +12,14 @@
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" @click="onPageChange(previousPage)">Previous</a>
+                <li class="page-item">
+                    <a class="page-link" :class="{ disabled: isPreviousDisabled }" @click="onPageChange(previousPage)">Previous</a>
                 </li>
-                <li class="page-item" v-for="page in pagesPagination">
+                <li class="page-item" :class="{ active: page.isActive }" v-for="page in pagesPagination">
                     <a class="page-link" @click="onPageChange(page.pageNumber)">{{ page.pageNumber }}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" @click="onPageChange(nextPage)">Next</a>
+                    <a class="page-link" :class="{ disabled: isNextDisabled }" @click="onPageChange(nextPage)">Next</a>
                 </li>
             </ul>
         </nav>

@@ -15,9 +15,15 @@ export default defineComponent({
             offset: Number,
             itemsPerPage: 6,
             pagesPagination: Array<Page>,
-            pageOfItems: this.response.slice(0, 6)
+            pageOfItems: this.response.slice(0, 6),
+            isPreviousDisabled: true,
+            isNextDisabled: false
         };
-    }, 
+    },
+    mounted() {
+        this.currentPage = 1;
+        this.mountPages();
+    },
     methods: {
         async onPageChange(page: number) {
 
@@ -33,21 +39,26 @@ export default defineComponent({
         mountPages() {
             this.pagesPagination = new Array<Page>();
 
-            for (let i = this.startPageRange; i <= this.endPageRange; i += 1) {
+            let startRange = this.currentPage <= 21 ? 1 : this.currentPage - 20;
+                startRange = startRange + 41 >= this.pageQuantity ? this.pageQuantity - 39 : startRange;
+
+            let endRange = startRange + 41 >= this.pageQuantity ? this.pageQuantity : startRange + 39;
+
+            for (let i = startRange; i <= endRange; i += 1) {
                 let page = new Page();
                 page.pageNumber = i
+                page.isActive = this.currentPage == i ? true : false;
                 this.pagesPagination.push(page);
             }
-        }
+
+            this.isPreviousDisabled = this.currentPage == 1 ? true : false;
+            this.isNextDisabled = this.currentPage == this.pageQuantity ? true : false;
+        }        
     },
     computed: {
         rows() {
             return this.response.length;
-        },
-        pages() {
-            this.mountPages();
-            return this.pagesPagination;
-        },
+        },       
         pageQuantity() {
             return Math.ceil(this.response.length / this.itemsPerPage);
         },
@@ -73,8 +84,5 @@ export default defineComponent({
 
             return endRange
         }
-    },
-    mounted() {
-        this.currentPage = 1;
-    }
+    }    
 });

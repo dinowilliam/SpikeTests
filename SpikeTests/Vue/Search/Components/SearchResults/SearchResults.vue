@@ -4,10 +4,10 @@
             <div class="d-flex text-body-secondary pt-3">
                 <span class="me-1"><img src=" https://www.dinowilliam.com/lib/assets/logo.png" height="16" width="72" loading="lazy"></span>
                 <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <p class="h6">{{ item.url }} </p>
-                <p><a class="h4" v-bind:href="item.url">{{ item.title }}</a></p>
+                <p class="h6">{{ item.url }} <span class="badge rounded-pill text-bg-secondary">{{ formatDate(item.date) }}</span></p>
+                <p><a class="h5" v-bind:href="item.url">{{ item.title }}</a></p>
                 {{ item.description }}
-                </p>
+                </p>                
             </div>
         </div>
         <nav aria-label="Page navigation example">

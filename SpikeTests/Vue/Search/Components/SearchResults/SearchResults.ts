@@ -1,5 +1,6 @@
 import { defineComponent } from "vue";
 import Page from "@/Search/Components/SearchResults/Page.ts";
+import moment from 'moment';
 
 export default defineComponent({
     name: "SearchResults",
@@ -53,7 +54,10 @@ export default defineComponent({
 
             this.isPreviousDisabled = this.currentPage == 1 ? true : false;
             this.isNextDisabled = this.currentPage == this.pageQuantity ? true : false;
-        }        
+        },
+        formatDate(value) {
+            return moment(value).format('YYYY-MM-DD hh:mm:ss');
+        }
     },
     computed: {
         rows() {

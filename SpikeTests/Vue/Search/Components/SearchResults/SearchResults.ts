@@ -14,9 +14,9 @@ export default defineComponent({
         return {
             currentPage: Number,
             offset: Number,
-            itemsPerPage: 6,
+            itemsPerPage: 5,
             pagesPagination: Array<Page>,
-            pageOfItems: this.response.slice(0, 6),
+            pageOfItems: this.response.slice(0, 5),
             isPreviousDisabled: true,
             isNextDisabled: false
         };

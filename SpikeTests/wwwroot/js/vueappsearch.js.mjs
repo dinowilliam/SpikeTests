@@ -2520,9 +2520,9 @@ const Gi = ft({
     return {
       currentPage: Number,
       offset: Number,
-      itemsPerPage: 6,
+      itemsPerPage: 5,
       pagesPagination: Array,
-      pageOfItems: this.response.slice(0, 6),
+      pageOfItems: this.response.slice(0, 5),
       isPreviousDisabled: !0,
       isNextDisabled: !1
     };
@@ -2587,7 +2587,10 @@ const Wt = (e, t) => {
     width: "72",
     loading: "lazy"
   })
-], -1), Zi = { class: "pb-3 mb-0 small lh-sm border-bottom" }, Qi = { class: "h6" }, Bi = { class: "badge rounded-pill text-bg-secondary" }, qi = ["href"], Ji = { "aria-label": "Page navigation example" }, Xi = { class: "pagination justify-content-center" }, Ki = { class: "page-item" }, eo = ["onClick"], to = { class: "page-item" };
+], -1), Zi = { class: "pb-3 mb-0 small lh-sm" }, Qi = { class: "h6" }, Bi = { class: "badge rounded-pill text-bg-secondary" }, qi = ["href"], Ji = {
+  class: "pt-5",
+  "aria-label": "Search Page navigation"
+}, Xi = { class: "pagination justify-content-center" }, Ki = { class: "page-item" }, eo = ["onClick"], to = { class: "page-item" };
 function so(e, t, s, r, a, n) {
   return Z(), ne("div", null, [
     (Z(!0), ne(at, null, Ft(e.pageOfItems, (i, d) => (Z(), ne("div", ji, [

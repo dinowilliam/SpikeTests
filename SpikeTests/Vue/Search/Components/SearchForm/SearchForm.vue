@@ -18,8 +18,7 @@
       </div>
       <button type="submit" class="btn btn-lg btn-dark col-md-4">Search</button>
     </form>
-  </div>
-  <SearchResults v-if="showResults" v-bind:response="dataResponse" />
+  </div>  
 </template>
 <style lang="scss" src="./SearchForm.scss"></style>
 <script lang="ts" src="./SearchForm.ts"></script>

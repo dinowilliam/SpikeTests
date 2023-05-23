@@ -55,6 +55,10 @@ export default defineComponent({
             this.isPreviousDisabled = this.currentPage == 1 ? true : false;
             this.isNextDisabled = this.currentPage == this.pageQuantity ? true : false;
         },
+        redirect(url: string) {
+            window.location.href = url;
+        }
+        ,
         formatDate(value) {
             return moment(value).format('YYYY-MM-DD hh:mm:ss');
         }

@@ -1,9 +1,7 @@
 import { defineComponent } from 'vue'
-import SearchResults from '@/Search/Components/SearchResults/SearchResults.vue'
 
 export default defineComponent({
-    name: 'SearchForm',
-    components: { SearchResults },
+    name: 'SearchForm',    
     data() {
         return {
             prompt: '',
@@ -27,10 +25,11 @@ export default defineComponent({
 
             console.log(prompt);            
 
-            return fetch("https://localhost:44354/Search", requestOptions)
+            fetch("https://localhost:44354/Search", requestOptions)
                 .then(response => response.json())
-                .then(data => (this.dataResponse = data, this.showSearch = false));            
-           
+                .then(data => (this.dataResponse = data));
+
+            return this.$router.push({ name: 'SearchResults', params: { response: JSON.stringify([this.dataResponse]) } });
         }
     },
     computed: {

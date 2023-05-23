@@ -59,5 +59,8 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./Vue", import.meta.url)),
     },
-  },
+    },
+  define: {
+        'process.env': process.env
+  }
 });

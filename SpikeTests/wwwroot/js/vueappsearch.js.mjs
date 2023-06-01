@@ -1187,12 +1187,12 @@ const Ua = ct({
   data() {
     return {
       prompt: "",
-      dataResponse: Array,
+      data_response: Array,
       showSearch: !0
     };
   },
   methods: {
-    sendSearch() {
+    async sendSearch() {
       var e = {
         Prompt: this.prompt
       };
@@ -1201,7 +1201,13 @@ const Ua = ct({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(e)
       };
-      return console.log(prompt), fetch("https://localhost:44354/Search", t).then((s) => s.json()).then((s) => this.dataResponse = s), this.$router.push({ name: "SearchResults", params: { response: JSON.stringify([this.dataResponse]) } });
+      return console.log(prompt), this.data_response = await fetch("https://localhost:44354/Search", t).then((s) => s.json()).then((s) => s), this.$router.push({
+        name: "SearchResults",
+        props: {
+          test_data: "Worked",
+          response_array: this.data_response
+        }
+      });
     }
   },
   computed: {
@@ -3758,28 +3764,25 @@ p.HTML5_FMT = {
 const Qu = ct({
   name: "SearchResults",
   props: {
-    response: {
-      type: Array,
-      required: !0
-    }
+    test_data: String,
+    response_array: Array
   },
   data() {
     return {
+      pageOfItems: Array,
       currentPage: Number,
       offset: Number,
       itemsPerPage: 5,
       pagesPagination: Array,
-      pageOfItems: this.response.slice(0, 5),
       isPreviousDisabled: !0,
       isNextDisabled: !1
     };
   },
   mounted() {
-    this.currentPage = 1, this.mountPages();
   },
   methods: {
     async onPageChange(e) {
-      this.currentPage = e * 1, this.offset = (e - 1) * this.itemsPerPage + 1 - 1, this.pageOfItems = await this.response.slice(
+      this.currentPage = e * 1, this.offset = (e - 1) * this.itemsPerPage + 1 - 1, this.pageOfItems = await this.response_array.slice(
         this.offset,
         this.offset + this.itemsPerPage
       ), this.mountPages();
@@ -3803,11 +3806,14 @@ const Qu = ct({
     }
   },
   computed: {
+    SearchOfItems() {
+      return this.$route.params.SearchOfItems;
+    },
     rows() {
-      return this.response.length;
+      return this.response_array.length;
     },
     pageQuantity() {
-      return Math.ceil(this.response.length / this.itemsPerPage);
+      return Math.ceil(this.response_array.length / this.itemsPerPage);
     },
     previousPage() {
       return this.currentPage > 1 ? this.currentPage - 1 : 1;
@@ -3886,13 +3892,14 @@ const cc = /* @__PURE__ */ ds(Qu, [["render", uc]]), fc = [
   {
     path: "/Search",
     name: "SearchForm",
-    component: Ba
+    component: Ba,
+    props: !0
   },
   {
     path: "/SearchResults",
     name: "SearchResults",
     component: cc,
-    props: { response: Array }
+    props: !0
   }
 ], hc = La({
   mode: "history",

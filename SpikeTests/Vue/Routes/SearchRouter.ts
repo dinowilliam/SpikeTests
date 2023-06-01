@@ -1,25 +1,26 @@
 import { createWebHistory, createRouter } from "vue-router";
-import SearchForm from "@/Search/Components/SearchForm/SearchForm.vue";
-import SearchResults from "@/Search/Components/SearchResults/SearchResults.vue";
+import SearchForm from "@/Views/Search/Components/SearchForm/SearchForm.vue";
+import SearchResults from "@/Views/Search/Components/SearchResults/SearchResults.vue";
 
 const routes = [
     {
         path: "/Search",
         name: "SearchForm",
         component: SearchForm,
+        props: true,
     },
     {
         path: "/SearchResults",
         name: "SearchResults",
         component: SearchResults,
-        props: { response: Array }
+        props: true,
     },
 ];
 
-const router = createRouter({
+const searchRouter = createRouter({
     mode: 'history',
     history: createWebHistory(),
     routes,
 });
 
-export default router;
+export default searchRouter;

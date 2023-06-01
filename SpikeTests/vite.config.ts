@@ -8,12 +8,12 @@ const vue = require("@vitejs/plugin-vue");
 
 const config = {
   about: {
-    entry: resolve(__dirname, "Vue/About/main.ts"),
+    entry: resolve(__dirname, "Vue/Views/About/main.ts"),
     name: "VueAppAbout",
     fileName: "js/vueappabout.js",
   },
   search: {
-    entry: resolve(__dirname, "Vue/Search/main.ts"),
+    entry: resolve(__dirname, "Vue/Views/Search/main.ts"),
     name: "VueAppSearch",
     fileName: "js/vueappsearch.js",
   },

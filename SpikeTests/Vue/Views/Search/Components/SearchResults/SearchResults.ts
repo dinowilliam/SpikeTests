@@ -1,36 +1,40 @@
 import { defineComponent } from "vue";
-import Page from "@/Search/Components/SearchResults/Page.ts";
+import { useRoute, useRouter } from 'vue-router'
+import Page from "@/Views/Search/Components/SearchResults/Page.ts";
 import moment from 'moment';
 
 export default defineComponent({
     name: "SearchResults",
     props: {
-        response: {
-            type: Array,
-            required: true
-        }
+        test_data: String,
+        response_array: Array
     },
     data() {
-        return {
+        return {                        
+            pageOfItems: Array,
             currentPage: Number,
             offset: Number,
             itemsPerPage: 5,
-            pagesPagination: Array<Page>,
-            pageOfItems: this.response.slice(0, 5),
+            pagesPagination: Array<Page>,            
             isPreviousDisabled: true,
             isNextDisabled: false
         };
     },
     mounted() {
-        this.currentPage = 1;
-        this.mountPages();
+        async () => {       
+            const router = useRouter();
+            await router.isReady();
+            this.pageOfItems = this.response_array.slice(0, 5);
+            this.currentPage = 1;
+            this.mountPages();
+        }        
     },
     methods: {
         async onPageChange(page: number) {
 
             this.currentPage = (page * 1);
             this.offset = (page - 1) * this.itemsPerPage + 1 - 1;
-            this.pageOfItems = await this.response.slice(
+            this.pageOfItems = await this.response_array.slice(
                 this.offset,
                 this.offset + this.itemsPerPage
             );
@@ -64,11 +68,14 @@ export default defineComponent({
         }
     },
     computed: {
+        SearchOfItems() {
+            return this.$route.params.SearchOfItems
+        },
         rows() {
-            return this.response.length;
+            return this.response_array.length;
         },       
         pageQuantity() {
-            return Math.ceil(this.response.length / this.itemsPerPage);
+            return Math.ceil(this.response_array.length / this.itemsPerPage);
         },
         previousPage() {
             return this.currentPage > 1 ? this.currentPage - 1 : 1;

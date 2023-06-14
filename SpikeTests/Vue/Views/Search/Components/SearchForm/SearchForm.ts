@@ -4,10 +4,12 @@ export default defineComponent({
     name: 'SearchForm',
     data() {
         return {
-            prompt: '',
-            data_response: Array,
-            showSearch: true
+            dataResponse: { type: Array<String> },
+            prompt: { type: String, default: '' }            
         }
+    },
+    mounted() {
+        this.prompt = '';
     },
     methods: {
 
@@ -25,23 +27,14 @@ export default defineComponent({
 
             console.log(prompt);
 
-            this.data_response = await fetch("https://localhost:44354/Search", requestOptions)
+            this.dataResponse = await fetch("https://localhost:44354/Search", requestOptions)
                 .then(response => response.json())
                 .then((data) => { return data });
-             
-            return this.$router.push({
-                name: 'SearchResults',
-                props: {
-                    test_data : 'Worked',
-                    response_array: this.data_response
-                }
-            });
-        }
-    },
-    computed: {
 
-        showResults() {
-            return !this.showSearch
+            this.$router.push({
+                name: 'SearchResults',
+                params: { responseArray: JSON.stringify(this.dataResponse) }
+            });
         }
     }
 

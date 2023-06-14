@@ -1,32 +1,43 @@
 import { defineComponent } from "vue";
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router';
 import Page from "@/Views/Search/Components/SearchResults/Page.ts";
 import moment from 'moment';
 
 export default defineComponent({
     name: "SearchResults",
     props: {
-        test_data: String,
-        response_array: Array
+        responseArray: Array
     },
-    data() {
-        return {                        
-            pageOfItems: Array,
+    data: function () {
+        return {            
+            pageOfItems: Array<String>,
             currentPage: Number,
             offset: Number,
             itemsPerPage: 5,
-            pagesPagination: Array<Page>,            
+            pagesPagination: Array<Page>,
             isPreviousDisabled: true,
             isNextDisabled: false
-        };
+        }
     },
-    mounted() {
-        async () => {       
-            const router = useRouter();
-            await router.isReady();
-            this.pageOfItems = this.response_array.slice(0, 5);
+    setup() {
+        const router = useRouter();
+        const route = useRoute();
+
+        try {
+            // onSuccess
+            console.log('Before Router Preparation', route.name);
+
+            console.log('After Router Preparation', route.name);
+
+            console.log('Route Params', route.params);
+
+            //this.responseArray = JSON.parse(route.params.responseArray);
+            this.pageOfItems = this.responseArray.slice(0, 5);
             this.currentPage = 1;
-            this.mountPages();
+            this.mountPages();            
+        } catch (err) {
+            // onError
+            console.log('Route Param responseArray', err);            
         }        
     },
     methods: {
@@ -34,7 +45,7 @@ export default defineComponent({
 
             this.currentPage = (page * 1);
             this.offset = (page - 1) * this.itemsPerPage + 1 - 1;
-            this.pageOfItems = await this.response_array.slice(
+            this.pageOfItems = await this.responseArray.slice(
                 this.offset,
                 this.offset + this.itemsPerPage
             );
@@ -45,7 +56,7 @@ export default defineComponent({
             this.pagesPagination = new Array<Page>();
 
             let startRange = this.currentPage <= 21 ? 1 : this.currentPage - 20;
-                startRange = startRange + 41 >= this.pageQuantity ? this.pageQuantity - 39 : startRange;
+            startRange = startRange + 41 >= this.pageQuantity ? this.pageQuantity - 39 : startRange;
 
             let endRange = startRange + 41 >= this.pageQuantity ? this.pageQuantity : startRange + 39;
 
@@ -72,10 +83,10 @@ export default defineComponent({
             return this.$route.params.SearchOfItems
         },
         rows() {
-            return this.response_array.length;
-        },       
+            return this.responseArray.length;
+        },
         pageQuantity() {
-            return Math.ceil(this.response_array.length / this.itemsPerPage);
+            return Math.ceil(this.responseArray.length / this.itemsPerPage);
         },
         previousPage() {
             return this.currentPage > 1 ? this.currentPage - 1 : 1;
@@ -99,5 +110,5 @@ export default defineComponent({
 
             return endRange
         }
-    }    
+    }
 });

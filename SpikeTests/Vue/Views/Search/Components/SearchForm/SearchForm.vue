@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showSearch" class="container-fluid mt-5">
+  <div class="container-fluid mt-5">
     <div class="pt-5 pb-5"></div>
     <div class="mt-5" id="logo"><img src="/img/lucene-net-color.png" /></div>
     <form @submit.prevent="sendSearch">

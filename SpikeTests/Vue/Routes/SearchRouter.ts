@@ -6,21 +6,20 @@ const routes = [
     {
         path: "/Search",
         name: "SearchForm",
-        component: SearchForm,
-        props: true,
+        component: SearchForm        
     },
     {
-        path: "/SearchResults",
+        path: "/Search",
         name: "SearchResults",
         component: SearchResults,
-        props: true,
-    },
+        props: true
+    }
 ];
 
-const searchRouter = createRouter({
-    mode: 'history',
+const searchRouter = createRouter({    
     history: createWebHistory(),
     routes,
+    mode: 'history'
 });
 
 export default searchRouter;

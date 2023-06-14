@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var compilerDom = require("@vue/compiler-dom");
-var runtimeDom = require("@vue/runtime-dom");
-var shared = require("@vue/shared");
+var compilerDom = require('@vue/compiler-dom');
+var runtimeDom = require('@vue/runtime-dom');
+var shared = require('@vue/shared');
 
 function _interopNamespaceDefault(e) {
   var n = Object.create(null);
@@ -17,10 +17,9 @@ function _interopNamespaceDefault(e) {
   return Object.freeze(n);
 }
 
-var runtimeDom__namespace = /*#__PURE__*/ _interopNamespaceDefault(runtimeDom);
+var runtimeDom__namespace = /*#__PURE__*/_interopNamespaceDefault(runtimeDom);
 
-// This entry is the "full-build" that includes both the runtime
-const compileCache = Object.create(null);
+const compileCache = /* @__PURE__ */ Object.create(null);
 function compileToFunction(template, options) {
   if (!shared.isString(template)) {
     if (template.nodeType) {
@@ -36,17 +35,13 @@ function compileToFunction(template, options) {
   }
   if (template[0] === "#") {
     const el = document.querySelector(template);
-    // __UNSAFE__
-    // Reason: potential execution of JS expressions in in-DOM template.
-    // The user must make sure the in-DOM template is trusted. If it's rendered
-    // by the server, the template should not contain any user data.
     template = el ? el.innerHTML : ``;
   }
   const opts = shared.extend(
     {
       hoistStatic: true,
-      onError: undefined,
-      onWarn: shared.NOOP,
+      onError: void 0,
+      onWarn: shared.NOOP
     },
     options
   );
@@ -54,17 +49,13 @@ function compileToFunction(template, options) {
     opts.isCustomElement = (tag) => !!customElements.get(tag);
   }
   const { code } = compilerDom.compile(template, opts);
-  // The wildcard import results in a huge object with every export
-  // with keys that cannot be mangled, and can be quite heavy size-wise.
-  // In the global build we know `Vue` is available globally so we can avoid
-  // the wildcard object.
   const render = new Function("Vue", code)(runtimeDom__namespace);
   render._rc = true;
-  return (compileCache[key] = render);
+  return compileCache[key] = render;
 }
 runtimeDom.registerRuntimeCompiler(compileToFunction);
 
 exports.compile = compileToFunction;
 Object.keys(runtimeDom).forEach(function (k) {
-  if (k !== "default") exports[k] = runtimeDom[k];
+  if (k !== 'default' && !exports.hasOwnProperty(k)) exports[k] = runtimeDom[k];
 });

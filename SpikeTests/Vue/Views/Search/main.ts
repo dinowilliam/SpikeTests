@@ -1,5 +1,8 @@
 import { createApp } from "vue";
+import searchRouter  from '@/Routes/SearchRouter.ts';
 import appSearch from "./App.vue";
-import searchRouter from '@/Routes/SearchRouter.ts'
 
-createApp(appSearch).use(searchRouter).mount("#mainAppSearch");
+
+const app = createApp(appSearch);
+app.use(searchRouter);
+app.mount("#mainAppSearch");

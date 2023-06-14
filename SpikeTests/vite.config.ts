@@ -45,7 +45,7 @@ export default defineConfig({
     write: true,
   },
   plugins: [
-    vue({
+      vue({      
       template: {
         transformAssetUrls: {
           includeAbsolute: false,

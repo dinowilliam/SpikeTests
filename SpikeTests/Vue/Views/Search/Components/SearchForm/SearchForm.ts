@@ -4,7 +4,7 @@ export default defineComponent({
     name: 'SearchForm',
     data() {
         return {
-            dataResponse: { type: Array<String> },
+            dataResponse: { type: Array },
             prompt: { type: String, default: '' }            
         }
     },
@@ -31,9 +31,14 @@ export default defineComponent({
                 .then(response => response.json())
                 .then((data) => { return data });
 
+            localStorage.clear();
+
+            localStorage.setItem('searchResult', JSON.stringify(this.dataResponse));
+
+            console.log(this.dataResponse);
+
             this.$router.push({
-                name: 'SearchResults',
-                params: { responseArray: JSON.stringify(this.dataResponse) }
+                name: 'SearchResults'
             });
         }
     }

@@ -1,16 +1,12 @@
 import { defineComponent } from "vue";
-import { useRouter, useRoute } from 'vue-router';
 import Page from "@/Views/Search/Components/SearchResults/Page.ts";
 import moment from 'moment';
 
 export default defineComponent({
     name: "SearchResults",
-    props: {
-        responseArray: Array
-    },
     data: function () {
-        return {            
-            pageOfItems: Array<String>,
+        return {
+            pageOfItems: Array<String>,          
             currentPage: Number,
             offset: Number,
             itemsPerPage: 5,
@@ -19,26 +15,21 @@ export default defineComponent({
             isNextDisabled: false
         }
     },
-    setup() {
-        const router = useRouter();
-        const route = useRoute();
+    mounted() {        
 
         try {
             // onSuccess
-            console.log('Before Router Preparation', route.name);
+            console.log(JSON.parse(localStorage.getItem('searchResult')));                        
+            console.log(this.responseArray);
 
-            console.log('After Router Preparation', route.name);
-
-            console.log('Route Params', route.params);
-
-            //this.responseArray = JSON.parse(route.params.responseArray);
             this.pageOfItems = this.responseArray.slice(0, 5);
             this.currentPage = 1;
-            this.mountPages();            
+            this.mountPages();
+
         } catch (err) {
             // onError
-            console.log('Route Param responseArray', err);            
-        }        
+            console.log('Route Param responseArray', err);
+        }
     },
     methods: {
         async onPageChange(page: number) {
@@ -79,7 +70,10 @@ export default defineComponent({
         }
     },
     computed: {
-        SearchOfItems() {
+        responseArray() {
+            return JSON.parse(localStorage.getItem('searchResult'));
+        },
+        searchOfItems() {
             return this.$route.params.SearchOfItems
         },
         rows() {

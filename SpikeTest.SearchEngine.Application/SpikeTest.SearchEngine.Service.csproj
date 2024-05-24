@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SpikeTest.SearchEngine.DAL\SpikeTest.SearchEngine.DAL.csproj" />
     <ProjectReference Include="..\SpikeTest.SearchEngine.Domain\SpikeTest.SearchEngine.Domain.csproj" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.5" />
   </ItemGroup>
 
 </Project>

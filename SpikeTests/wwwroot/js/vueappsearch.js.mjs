@@ -4085,7 +4085,7 @@ const gc = /* @__PURE__ */ ys(rc, [["render", _c]]), vc = [
     component: gc
   }
 ], wc = za({
-  history: la("./"),
+  history: la(),
   routes: vc
 }), kc = ut({
   name: "App"

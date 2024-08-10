@@ -14,7 +14,7 @@ namespace SpikeTests.UnitTestsProves.Tests.SearchEngine.App {
         }
 
         [Test]
-        public void Crawler_WhenTheCrawlerStatrs_ItStartSucesfull()
+        public void Crawler_WhenTheCrawlerStarts_ItSucceed()
         {
 
             //Arrange            
@@ -26,7 +26,20 @@ namespace SpikeTests.UnitTestsProves.Tests.SearchEngine.App {
             //Assert
             Assert.That(returnStart, Is.True);
         }
-        
+
+        [Test]
+        public void Crawler_WhenTheCrawlerStarts_ItFails() {
+
+            //Arrange            
+
+
+            //Act
+            var returnStart = crawler.Start();
+
+            //Assert
+            Assert.That(returnStart, Is.False);
+        }
+
 
         [TearDown]
         public void TearDown()

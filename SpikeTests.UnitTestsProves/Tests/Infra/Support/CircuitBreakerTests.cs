@@ -3,9 +3,11 @@ using SpikeTests.Infra.Support.CircuitBreaker;
 using SpikeTests.Infra.Support.CircuitBreaker.Contracts;
 using SpikeTests.UnitTestsProves.Subjects.Contracts;
 
-namespace SpikeTests.UnitTestsProves.Tests {  
+namespace SpikeTests.UnitTestsProves.Tests.Infra.Support
+{
 
-    public class CircuitBreakerTests {
+    public class CircuitBreakerTests
+    {
 
         ICircuitBreaker circuitBreaker;
         Mock<IHttpClientSubject> httpClientSubjectConfig;
@@ -14,14 +16,16 @@ namespace SpikeTests.UnitTestsProves.Tests {
         string streamToSend;
 
         [SetUp]
-        public void Setup() {
+        public void Setup()
+        {
             circuitBreaker = new CircuitBreaker(100);
             httpClientSubjectConfig = new Mock<IHttpClientSubject>();
             streamToSend = "request";
         }
-        
+
         [Test]
-        public void CircuitBreaker_WhenTheConnectionToRemoteService_IsOpen() {
+        public void CircuitBreaker_WhenTheConnectionToRemoteService_IsOpen()
+        {
 
             //Arrange            
             httpClientSubjectConfig.Setup(client => client.Request(streamToSend)).Throws(new Exception());
@@ -32,17 +36,19 @@ namespace SpikeTests.UnitTestsProves.Tests {
             {
                 circuitBreaker.ExecuteAction(() => { httpClientSubject.Request(streamToSend); });
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 exceptionThrowed = ex;
             }
 
             //Assert
-            Assert.IsTrue(circuitBreaker.IsOpen);
+            Assert.That(circuitBreaker.IsOpen, Is.True);
         }
 
-        
+
         [Test]
-        public void CircuitBreaker_WhenTheConnectionToRemoteService_IsClosed() {
+        public void CircuitBreaker_WhenTheConnectionToRemoteService_IsClosed()
+        {
 
             //Arrange                        
             httpClientSubjectConfig.Setup(client => client.Request("")).Returns("Finished");
@@ -52,12 +58,13 @@ namespace SpikeTests.UnitTestsProves.Tests {
             circuitBreaker.ExecuteAction(() => { httpClientSubject.Request(""); });
 
             //Assert
-            Assert.IsTrue(circuitBreaker.IsClosed);
-        }        
+            Assert.That(circuitBreaker.IsClosed, Is.True);
+        }
 
 
         [Test]
-        public void CircuitBreaker_WhenTheConnectionToRemoteService_FailAndTryAgainIsClosed() {
+        public void CircuitBreaker_WhenTheConnectionToRemoteService_FailAndTryAgainIsClosed()
+        {
 
             //Arrange            
             httpClientSubjectConfig.Setup(client => client.Request(streamToSend)).Throws(new Exception());
@@ -69,23 +76,25 @@ namespace SpikeTests.UnitTestsProves.Tests {
             {
                 circuitBreaker.ExecuteAction(() => { httpClientSubject.Request(streamToSend); });
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 exceptionThrowed = ex;
             }
 
             circuitBreaker.ExecuteAction(() => { httpClientSubject.Request(""); });
 
             //Assert
-            Assert.IsTrue(circuitBreaker.IsClosed);
-        }        
+            Assert.That(circuitBreaker.IsClosed, Is.True);
+        }
 
         [TearDown]
-        public void TearDown() {
+        public void TearDown()
+        {
             circuitBreaker = null;
             httpClientSubjectConfig = null;
             httpClientSubject = null;
             exceptionThrowed = null;
-            streamToSend = String.Empty;
+            streamToSend = string.Empty;
         }
     }
 }

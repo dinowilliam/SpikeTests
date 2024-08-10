@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SpikeTests.Infra.Support\SpikeTests.Infra.Support.csproj" />
+    <ProjectReference Include="..\SpikeTests.SearchEngine.Application\SpikeTests.SearchEngine.Application.csproj" />
   </ItemGroup>
 
 </Project>

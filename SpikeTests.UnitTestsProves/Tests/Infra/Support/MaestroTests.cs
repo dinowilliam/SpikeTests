@@ -1,24 +1,28 @@
 using FluentAssertions;
 using Moq;
 
-namespace SpikeTests.UnitTestsProves.Tests {
+namespace SpikeTests.UnitTestsProves.Tests.Infra.Support
+{
 
     using SpikeTests.Infra.Support.Workflow;
     using SpikeTests.Infra.Support.Workflow.Contracts;
 
-    public class MaestroTests {
+    public class MaestroTests
+    {
 
         IMaestro maestro;
         Mock<IFluxQueue> mockConfigFluxQueue;
         IFluxQueue mockFluxQueue;
 
         [SetUp]
-        public void Setup() {
+        public void Setup()
+        {
             mockConfigFluxQueue = new Mock<IFluxQueue>();
         }
-        
+
         [Test]
-        public void Maestro_WhenWorflowRunsAndProcess_Succeed() {
+        public void Maestro_WhenWorflowRunsAndProcess_Succeed()
+        {
 
             //Arrange
             mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Returns(true);
@@ -26,14 +30,15 @@ namespace SpikeTests.UnitTestsProves.Tests {
             maestro = new Maestro(mockFluxQueue);
 
             //Act
-            var result = maestro.Run();
+            var result = maestro.Run().Result;
 
             //Assert
             result.Should().BeTrue();
         }
 
         [Test]
-        public void Maestro_WhenTheWorflowRunsAndProcess_Fails() {
+        public void Maestro_WhenTheWorflowRunsAndProcess_Fails()
+        {
 
             //Arrange                        
             mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Returns(false);
@@ -41,7 +46,8 @@ namespace SpikeTests.UnitTestsProves.Tests {
             maestro = new Maestro(mockFluxQueue);
 
             //Act
-            var result = maestro.Run();
+            var result = maestro.Run().Result;
+            
 
             //Assert
             result.Should().BeFalse();
@@ -49,15 +55,16 @@ namespace SpikeTests.UnitTestsProves.Tests {
         }
 
         [Test]
-        public void Maestro_WhenTheWorflowRunsAndIsRunning_IsTrue() {
+        public void Maestro_WhenTheWorflowRunsAndIsRunning_IsTrue()
+        {
 
             //Arrange                                    
-            mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Callback(async () => Task.Delay(15000)).Returns(true);
+            mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Callback(async () => Task.Delay(150000)).Returns(true);
             mockFluxQueue = mockConfigFluxQueue.Object;
             maestro = new Maestro(mockFluxQueue);
 
             //Act            
-            maestro.Run();
+            maestro.Run();           
             var result = maestro.IsRunning;
 
             //Assert
@@ -66,7 +73,8 @@ namespace SpikeTests.UnitTestsProves.Tests {
         }
 
         [Test]
-        public void Maestro_WhenTheWorflowRunsAndIsRunning_IsFalse() {
+        public void Maestro_WhenTheWorflowRunsAndIsRunning_IsFalse()
+        {
 
             //Arrange                        
             mockConfigFluxQueue.Setup(stub => stub.ProcessQueue()).Returns(false);
@@ -75,6 +83,7 @@ namespace SpikeTests.UnitTestsProves.Tests {
 
             //Act
             maestro.Run();
+            Thread.Sleep(1000);
             var result = maestro.IsRunning;
 
             //Assert
@@ -84,7 +93,8 @@ namespace SpikeTests.UnitTestsProves.Tests {
 
         [TearDown]
 
-        public void TearDown() {
+        public void TearDown()
+        {
             mockConfigFluxQueue = null;
             mockFluxQueue = null;
         }

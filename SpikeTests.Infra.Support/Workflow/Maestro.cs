@@ -5,33 +5,39 @@ namespace SpikeTests.Infra.Support.Workflow {
 
         private IFluxQueue fluxQueue;
         private bool IsRunningNow;
+        private bool Finished;
 
         public Maestro(IFluxQueue fluxQueue) {
             this.fluxQueue = fluxQueue;
             this.IsRunningNow = false;
+            this.Finished = false;
         }
 
         public bool IsRunning => this.IsRunningNow;
 
         public TimeOnly RunningTime => throw new NotImplementedException();
 
-        public bool Run() {
-            bool wasProcessed = false;
+        public async Task<bool> Run() {
 
-            try {
-                this.IsRunningNow = true;
+            return await Task.Run(() => {
 
-                wasProcessed = fluxQueue.ProcessQueue();
+                try {
+                    this.IsRunningNow = true;
 
-                this.IsRunningNow = false;
+                    this.Finished = fluxQueue.ProcessQueue();
 
-                return wasProcessed;
-            }
-            catch (Exception ex) {
+                    this.IsRunningNow = false;
+                }
+                catch (Exception ex) {
 
-                throw ex;
-            }            
-            
+                    this.Finished = true;
+
+                    throw ex;
+                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+                return this.Finished;
+
+             });
         }
     }
 }

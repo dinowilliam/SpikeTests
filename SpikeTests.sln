@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpikeTests.Interface", "Spi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{095BB236-5CF7-4748-8840-5C39AC88AC21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeTests.SearchEngine.Application", "SpikeTests.SearchEngine.Application\SpikeTests.SearchEngine.Application.csproj", "{69550946-E396-4A81-9567-3ACF146A517E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpikeTests.SearchEngine.Application", "SpikeTests.SearchEngine.Application\SpikeTests.SearchEngine.Application.csproj", "{69550946-E396-4A81-9567-3ACF146A517E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

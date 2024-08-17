@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SpikeTests.SearchEngine.Application {
-    internal class Application {
+    public class Application {
     }
 }

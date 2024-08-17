@@ -6,3 +6,4 @@ namespace SpikeTest.SearchEngine.QuartzNet
     {
     }
 }
+

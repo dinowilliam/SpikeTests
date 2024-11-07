@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace SpikeTest.SearchEngine.DAL.Infra.Contracts {
+namespace SpikeTests.SearchEngine.DAL.Infra.Contracts {
     public interface IRepositoryQueries<TEntity> where TEntity : class, IEntity {
         TEntity Get(Guid id);
         IList<TEntity> List();

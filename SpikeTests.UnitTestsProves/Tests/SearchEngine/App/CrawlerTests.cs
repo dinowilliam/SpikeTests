@@ -1,5 +1,5 @@
-using SpikeTests.SearchEngine.Application;
 using SpikeTests.SearchEngine.Application.Contracts;
+using SpikeTests.SearchEngine.Application.Crawler;
 
 namespace SpikeTests.UnitTestsProves.Tests.SearchEngine.App {
 

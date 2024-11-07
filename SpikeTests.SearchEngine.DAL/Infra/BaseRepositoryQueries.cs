@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using SpikeTest.SearchEngine.DAL.Infra.Contracts;
+using SpikeTests.SearchEngine.DAL.Infra.Contracts;
 using Microsoft.EntityFrameworkCore;
 
-namespace SpikeTest.SearchEngine.DAL.Infra {
+namespace SpikeTests.SearchEngine.DAL.Infra {
     public abstract class BaseRepositoryQueries<TEntity, TContext> : IRepositoryQueries<TEntity>
         where TEntity : class, IEntity
         where TContext:  DbContext {

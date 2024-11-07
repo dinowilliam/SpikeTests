@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace SpikeTest.SearchEngine.Service {
+namespace SpikeTests.SearchEngine.Service {
 
-    using SpikeTest.SearchEngine.DAL.Services.Contracts;
-    using SpikeTest.SearchEngine.Domain.Entities;
-    using SpikeTest.SearchEngine.Service.Contracts;
+    using SpikeTests.SearchEngine.DAL.Services.Contracts;
+    using SpikeTests.SearchEngine.Domain.Entities;
+    using SpikeTests.SearchEngine.Service.Contracts;
     public class SearchService : ISearchService  {
         
         private readonly ILogServiceCommands logServiceCommands;

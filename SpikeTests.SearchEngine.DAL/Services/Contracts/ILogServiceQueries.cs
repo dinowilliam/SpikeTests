@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SpikeTest.SearchEngine.DAL.Services.Contracts {
+namespace SpikeTests.SearchEngine.DAL.Services.Contracts {
 
-    using SpikeTest.SearchEngine.Domain.Entities;
+    using SpikeTests.SearchEngine.Domain.Entities;
 
     public interface ILogServiceQueries    {        
         public IEnumerable<LogMessage> GetAll();

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SpikeTest.SearchEngine.Service.Contracts {
+namespace SpikeTests.SearchEngine.Service.Contracts {
 
-    using SpikeTest.SearchEngine.Domain.Entities;
+    using SpikeTests.SearchEngine.Domain.Entities;
 
     public interface ISearchService {
         public int Save(LogMessage log);                

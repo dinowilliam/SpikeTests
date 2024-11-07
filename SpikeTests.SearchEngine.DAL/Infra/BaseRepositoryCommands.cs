@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace SpikeTest.SearchEngine.DAL.Infra {
+namespace SpikeTests.SearchEngine.DAL.Infra {
     
-    using SpikeTest.SearchEngine.DAL.Infra.Contracts;
+    using SpikeTests.SearchEngine.DAL.Infra.Contracts;
 
     public abstract class BaseRepositoryCommands<TEntity, TContext> : IRepositoryCommands<TEntity>
         where TEntity : class, IEntity

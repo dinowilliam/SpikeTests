@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpikeTest.SearchEngine.Domain.Entities {
+namespace SpikeTests.SearchEngine.Domain.Entities {
     public class LogSearch {
 
         public LogSearch() { }        

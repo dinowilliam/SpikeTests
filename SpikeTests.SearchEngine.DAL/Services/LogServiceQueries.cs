@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using Nelibur.ObjectMapper;
 
-namespace SpikeTest.SearchEngine.DAL.Services {
+namespace SpikeTests.SearchEngine.DAL.Services {
 
-    using SpikeTest.SearchEngine.DAL.Infra.Contexts;
-    using SpikeTest.SearchEngine.DAL.Infra.Contracts;
-    using SpikeTest.SearchEngine.DAL.Repositorys;
-    using SpikeTest.SearchEngine.DAL.Repositorys.Models;
-    using SpikeTest.SearchEngine.DAL.Services.Contracts;
-    using SpikeTest.SearchEngine.Domain.Entities;    
+    using SpikeTests.SearchEngine.DAL.Infra.Contexts;
+    using SpikeTests.SearchEngine.DAL.Infra.Contracts;
+    using SpikeTests.SearchEngine.DAL.Repositorys;
+    using SpikeTests.SearchEngine.DAL.Repositorys.Models;
+    using SpikeTests.SearchEngine.DAL.Services.Contracts;
+    using SpikeTests.SearchEngine.Domain.Entities;    
 
     public class LogServiceQueries : ILogServiceQueries   {
 

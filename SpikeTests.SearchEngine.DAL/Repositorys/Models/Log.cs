@@ -1,11 +1,9 @@
 ﻿using System;
 
-#nullable disable
-
-namespace SpikeTest.SearchEngine.DAL.Repositorys.Models
+namespace SpikeTests.SearchEngine.DAL.Repositorys.Models
 {
 
-    using SpikeTest.SearchEngine.DAL.Infra.Contracts;
+    using SpikeTests.SearchEngine.DAL.Infra.Contracts;
 
     public partial class LogPersistance : IEntity {
         public Guid Id { get; set; }        

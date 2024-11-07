@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpikeTest.SearchEngine
+namespace SpikeTests.SearchEngine
 {
     public class Class1
     {

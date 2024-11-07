@@ -1,6 +1,6 @@
 using System;
 
-namespace SpikeTest.SearchEngine.Api.Models
+namespace SpikeTests.SearchEngine.Api.Models
 {
     public class SearchResult {
         public DateTime Date { get; set; }

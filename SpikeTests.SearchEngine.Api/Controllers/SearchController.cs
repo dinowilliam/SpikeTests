@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SpikeTest.SearchEngine.Api.Models;
-using System;
+using SpikeTests.SearchEngine.Api.Models;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace SpikeTest.SearchEngine.Api.Controllers {
+namespace SpikeTests.SearchEngine.Api.Controllers {
+    
     [ApiController]
     [Route("[controller]")]
     public class SearchController : ControllerBase

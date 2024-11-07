@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SpikeTests.SearchEngine.Application {
+﻿namespace SpikeTests.SearchEngine.Application {
     public class Application {
     }
 }

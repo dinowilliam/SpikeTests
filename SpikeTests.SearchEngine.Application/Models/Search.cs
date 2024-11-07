@@ -1,7 +1,4 @@
-using System;
-
-namespace SpikeTest.SearchEngine.Api.Models
-{
+namespace SpikeTests.SearchEngine.Appplication.Models {
     public class Search
     {
         public string prompt{ get; set; }        

@@ -1,7 +1,4 @@
-using System;
-
-namespace SpikeTest.SearchEngine.Api.Models
-{
+namespace SpikeTests.SearchEngine.Appplication.Models {
     public class SearchResult {
         public DateTime Date { get; set; }
 

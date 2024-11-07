@@ -1,7 +1,8 @@
 ﻿using SpikeTests.SearchEngine.Application.Contracts;
 using SpikeTests.SearchEngine.Appplication.Models;
 
-namespace SpikeTests.SearchEngine.Application {
+namespace SpikeTests.SearchEngine.Application.Crawler {
+    
     public class Crawler : ICrawler {
 
         readonly Random rng;
@@ -14,7 +15,7 @@ namespace SpikeTests.SearchEngine.Application {
 
         public bool Start() {
 
-            try {                
+            try {
                 searchResults = Enumerable.Range(1, 500).Select(index => new SearchResult {
                     Date = DateTime.Now.AddDays(index),
                     Url = "https://www.dinowilliam.com",
@@ -23,9 +24,9 @@ namespace SpikeTests.SearchEngine.Application {
                     Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 }).ToArray();
             }
-            catch (Exception ex) {                
+            catch (Exception ex) {
                 return false;
-            }            
+            }
 
             return true;
         }

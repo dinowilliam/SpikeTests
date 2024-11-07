@@ -1,4 +1,5 @@
 namespace SpikeTests.SearchEngine.Appplication.Models {
+   
     public class SearchResult {
         public DateTime Date { get; set; }
 

@@ -20,6 +20,7 @@ namespace SpikeTests.SearchEngine.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddAutofac();
             services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>

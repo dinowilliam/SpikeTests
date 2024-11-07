@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SpikeTests.SearchEngine.DAL\SpikeTests.SearchEngine.DAL.csproj" />
     <ProjectReference Include="..\SpikeTests.SearchEngine.Domain\SpikeTests.SearchEngine.Domain.csproj" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.6" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
   </ItemGroup>
 
 </Project>

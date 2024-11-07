@@ -22,3 +22,4 @@ namespace SpikeTests.SearchEngine.Api.Controllers {
         }
     }
 }
+

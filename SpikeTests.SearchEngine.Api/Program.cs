@@ -23,4 +23,3 @@ namespace SpikeTests.SearchEngine.Api {
                 });            
     }
 }
-0

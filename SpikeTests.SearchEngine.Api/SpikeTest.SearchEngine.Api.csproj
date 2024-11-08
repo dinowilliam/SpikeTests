@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SpikeTests.SearchEngine.Application\SpikeTests.SearchEngine.Application.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ namespace SpikeTests.SearchEngine.Application {
 
         private readonly ICrawler _crawler;
 
-        private Application(ICrawler crawler) {
+        public Application(ICrawler crawler) {
             _crawler = crawler;
         }
 

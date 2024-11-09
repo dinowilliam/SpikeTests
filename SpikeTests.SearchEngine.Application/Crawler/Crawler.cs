@@ -24,7 +24,7 @@ namespace SpikeTests.SearchEngine.Application.Crawler {
                     Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 }).ToArray();
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return false;
             }
 

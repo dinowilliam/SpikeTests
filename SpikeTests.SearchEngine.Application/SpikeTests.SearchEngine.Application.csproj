@@ -10,4 +10,12 @@
     <Folder Include="Crawler\Contracts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Riok.Mapperly" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpikeTests.SearchEngine.Service\SpikeTests.SearchEngine.Service.csproj" />
+  </ItemGroup>
+
 </Project>

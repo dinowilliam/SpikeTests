@@ -1,80 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 
 namespace SpikeTests.SearchEngine.Service {
-
-    using SpikeTests.SearchEngine.DAL.Services.Contracts;
-    using SpikeTests.SearchEngine.Domain.Entities;
     using SpikeTests.SearchEngine.Service.Contracts;
-    public class SearchService : ISearchService  {
-        
-        private readonly ILogServiceCommands logServiceCommands;
-        private readonly ILogServiceQueries logServiceQueries;
-        public SearchService(ILogServiceCommands logServiceCommands, ILogServiceQueries logServiceQueries) {
+    using SpikeTests.SearchEngine.Service.DTOs;
+    using System.Linq;
 
-            this.logServiceCommands = logServiceCommands;
-            this.logServiceQueries = logServiceQueries;
-        }
-
-        public int Save(LogMessage log) {
-            return logServiceCommands.Save(log);
-        }
+    public class SearchService : ISearchService  {        
         
-        public int Delete(Guid id) {
+        public SearchService() {
             
-            var localLog = logServiceQueries.GetById(id);
+        }        
 
-            return logServiceCommands.Delete(localLog);
+        public IEnumerable<SearchResultDTO> GetSearch() {
+           
+           return Enumerable.Range(1, 500).Select(index => new SearchResultDTO {
+                Date = DateTime.Now.AddDays(index),
+                Url = "https://www.dinowilliam.com",
+                Title = "dinowilliam.com - Consectetur adipiscing elit",
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                Summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            }).ToArray();
+
         }
-        public IEnumerable<LogMessage> GetAll() {
-            return logServiceQueries.GetAll();
-        }
-        public IEnumerable<LogMessage> LogFilter(LogSearch logSearch) {
-            return logServiceQueries.LogFilter(logSearch);
-        }
-        public LogMessage GetById(Guid id) {
-            return logServiceQueries.GetById(id);
-        }
-        public int Upload(byte[] file) {
-            var stringList = new List<string>();
-
-            var msFile = new MemoryStream(file);
-            using (StreamReader srFile = new StreamReader(msFile)) {
-                while (srFile.Peek() >= 0) {
-                    stringList.Add(srFile.ReadLine());
-                }
-            }
-
-            var listLog = new List<LogMessage>();
-
-            foreach (string item in stringList) {
-
-                var newLogTuple = new LogMessage();
-                newLogTuple.Id = Guid.NewGuid();
-                newLogTuple.Title = item.Split()[0];
-                newLogTuple.OccurrenceeDate = ParseDateTimeLinq(item.Split()[3].Replace("[", "") + item.Split()[4].Replace("]", ""));
-                newLogTuple.Description = item.Split()[5].Replace("\"", "") + " " + item.Split()[6] + " " + item.Split()[7].Replace("\"", "");
-                newLogTuple.Source = item.Split()[8].Replace("-", "");
-                
-
-                listLog.Add(newLogTuple);
-            }
-
-            return logServiceCommands.AddRange(listLog); ;
-        }
-
-        public DateTime ParseDateTimeLinq(string dateToParse) {
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime dateParse;
-
-            var format = "dd/MMM/yyyy:HH:mm:sszzz";
-            dateParse = DateTime.ParseExact(dateToParse, format, provider);
-
-            return dateParse;
-        }
-                
+                        
 
     }
 

@@ -1,5 +1,5 @@
 ﻿using SpikeTests.SearchEngine.Application.Crawler.Contracts;
-using SpikeTests.SearchEngine.Appplication.Models;
+using SpikeTests.SearchEngine.Application.Search.Models;
 
 namespace SpikeTests.SearchEngine.Application.Crawler {
 

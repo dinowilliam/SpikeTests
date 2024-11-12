@@ -1,6 +1,6 @@
 ﻿using SpikeTests.SearchEngine.Application.Contracts;
 using SpikeTests.SearchEngine.Application.Search.Contracts;
-using SpikeTests.SearchEngine.Appplication.Models;
+using SpikeTests.SearchEngine.Application.Search.Models;
 
 namespace SpikeTests.SearchEngine.Application {
     public class Application : IApplication {

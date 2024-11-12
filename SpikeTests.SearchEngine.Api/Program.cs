@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
 namespace SpikeTests.SearchEngine.Api {
+
+    using SpikeTest.SearchEngine.Api.Modules;
+
     public class Program
     {
         public static void Main(string[] args)

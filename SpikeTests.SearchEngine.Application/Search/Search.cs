@@ -1,6 +1,6 @@
-﻿using SpikeTest.SearchEngine.Api.Mappers;
+﻿using SpikeTests.SearchEngine.Application.Search.Mappers;
 using SpikeTests.SearchEngine.Application.Search.Contracts;
-using SpikeTests.SearchEngine.Appplication.Models;
+using SpikeTests.SearchEngine.Application.Search.Models;
 using SpikeTests.SearchEngine.Service.Contracts;
 
 namespace SpikeTests.SearchEngine.Application.Search {
@@ -18,7 +18,7 @@ namespace SpikeTests.SearchEngine.Application.Search {
 
             try {
                 var searchResultsMapper =  new SearchResultsMapper();
-                searchResults = searchResultsMapper.SearchResulDTOToAppSearchResult(_searchService.GetSearch());
+                searchResults = searchResultsMapper.SearchResulDTOToAppSearchResult(_searchService.GetAll());
             }
             catch (Exception) {
                 return false;

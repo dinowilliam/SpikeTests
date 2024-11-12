@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 #nullable disable
 namespace SpikeTests.SearchEngine.DAL.Infra.Contexts
 {
-    public partial class MicroservicesSpikeCommandsContext : DbContext {
+    public partial class DALCommandsContext : DbContext {
                 
-        public MicroservicesSpikeCommandsContext(DbContextOptions<MicroservicesSpikeCommandsContext> options)
+        public DALCommandsContext(DbContextOptions<DALCommandsContext> options)
             : base(options) {
         }
 

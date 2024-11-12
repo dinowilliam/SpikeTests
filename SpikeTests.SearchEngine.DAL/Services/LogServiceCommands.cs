@@ -13,11 +13,11 @@ namespace SpikeTests.SearchEngine.DAL.Services {
 
     public class LogServiceCommands : ILogServiceCommands   {
 
-        private readonly MicroservicesSpikeCommandsContext context;
+        private readonly DALCommandsContext context;
         
         IRepositoryCommands<LogPersistance> logPersistanceCommands { get; set; }
 
-        public LogServiceCommands(MicroservicesSpikeCommandsContext context) {
+        public LogServiceCommands(DALCommandsContext context) {
             this.context = context;
             this.logPersistanceCommands = new LogRepositoryCommands(this.context);
         }             

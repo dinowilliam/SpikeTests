@@ -13,9 +13,9 @@ namespace SpikeTests.SearchEngine.DAL.Services {
 
     public class LogServiceQueries : ILogServiceQueries   {
 
-        private readonly MicroservicesSpikeQueriesContext context;
+        private readonly DALQueriesContext context;
 
-        public LogServiceQueries(MicroservicesSpikeQueriesContext context) {
+        public LogServiceQueries(DALQueriesContext context) {
             this.context = context;
             this.logPersistanceQueries = new LogRepositoryQueries(this.context);
         }

@@ -4,9 +4,9 @@ using SpikeTests.SearchEngine.DAL.Infra.Contracts;
 using SpikeTests.SearchEngine.DAL.Repositorys.Models;
 
 namespace SpikeTests.SearchEngine.DAL.Repositorys {
-    public class LogRepositoryQueries : BaseRepositoryQueries<LogPersistance, MicroservicesSpikeQueriesContext>, IRepositoryQueries<LogPersistance>
+    public class LogRepositoryQueries : BaseRepositoryQueries<LogPersistance, DALQueriesContext>, IRepositoryQueries<LogPersistance>
     {
-        public LogRepositoryQueries(MicroservicesSpikeQueriesContext dataContext) : base(dataContext) {
+        public LogRepositoryQueries(DALQueriesContext dataContext) : base(dataContext) {
         }
     }
 

@@ -1,26 +1,24 @@
-﻿using SpikeTest.SearchEngine.Api.Mappers;
-using SpikeTests.SearchEngine.Application.Contracts;
+﻿using SpikeTests.SearchEngine.Application.Crawler.Contracts;
 using SpikeTests.SearchEngine.Appplication.Models;
-using SpikeTests.SearchEngine.Service.Contracts;
 
 namespace SpikeTests.SearchEngine.Application.Crawler {
-    
+
     public class Crawler : ICrawler {
 
-        private readonly ISearchService _searchService;
+        readonly Random rng;
         SearchResult[] searchResults;
 
-        public Crawler(ISearchService searchService) {
-            _searchService = searchService;
+
+        public Crawler() {
+            rng = new Random();
         }
 
         public bool Start() {
 
             try {
-                var searchResultsMapper =  new SearchResultsMapper();
-                searchResults = searchResultsMapper.SearchResulDTOToAppSearchResult(_searchService.GetSearch());
+                
             }
-            catch (Exception) {
+            catch (Exception ex) {
                 return false;
             }
 

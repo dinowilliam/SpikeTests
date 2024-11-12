@@ -1,20 +1,21 @@
 ﻿using SpikeTests.SearchEngine.Application.Contracts;
+using SpikeTests.SearchEngine.Application.Search.Contracts;
 using SpikeTests.SearchEngine.Appplication.Models;
 
 namespace SpikeTests.SearchEngine.Application {
     public class Application : IApplication {
 
-        private readonly ICrawler _crawler;
+        private readonly ISearch _search;
 
-        public Application(ICrawler crawler) {
-            _crawler = crawler;
+        public Application(ISearch search) {
+            _search = search;
         }
 
-        public IEnumerable<SearchResult> GetSearchResults(Search search) {
-            
-            _crawler.Start();
+        public IEnumerable<SearchResult> GetSearchResults(SearchTerms searchTerms) {
 
-            return _crawler.GetResults();
+            _search.Start();
+
+            return _search.GetResults();
         }
     }
 }

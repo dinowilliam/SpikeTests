@@ -1,7 +1,8 @@
-using SpikeTests.SearchEngine.Application.Contracts;
 using SpikeTests.SearchEngine.Application.Crawler;
+using SpikeTests.SearchEngine.Application.Crawler.Contracts;
 
-namespace SpikeTests.UnitTestsProves.Tests.SearchEngine.App {
+namespace SpikeTests.UnitTestsProves.Tests.SearchEngine.App
+{
 
     public class CrawlerTests {
 

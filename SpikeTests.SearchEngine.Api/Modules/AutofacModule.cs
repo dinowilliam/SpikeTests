@@ -1,7 +1,8 @@
 ﻿using Autofac;
+using Microsoft.EntityFrameworkCore;
 
 namespace SpikeTest.SearchEngine.Api.Modules {
-    using Microsoft.EntityFrameworkCore;
+    
     using SpikeTests.SearchEngine.Application;
     using SpikeTests.SearchEngine.Application.Contracts;
     using SpikeTests.SearchEngine.Application.Search;

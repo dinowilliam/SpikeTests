@@ -12,7 +12,7 @@ namespace SpikeTest.SearchEngine.Api.Modules {
     using SpikeTests.SearchEngine.DAL.Services.Contracts;
     using SpikeTests.SearchEngine.Service;
     using SpikeTests.SearchEngine.Service.Contracts;
-
+     
     internal class AutofacModule : Module {
 
         protected override void Load(ContainerBuilder builder) {

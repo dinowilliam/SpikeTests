@@ -7,11 +7,11 @@
       "destination": "wwwroot/lib/bootstrap/dist/"
     },
     {
-      "library": "vue@3.5.12",
+      "library": "vue@3.5.13",
       "destination": "wwwroot/lib/vue/"
     },
     {
-      "library": "vue-router@4.4.5",
+      "library": "vue-router@4.5.0",
       "destination": "wwwroot/lib/vue/"
     }
   ]

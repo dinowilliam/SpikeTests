@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\vuedevtools\**" />
+    <Content Remove="wwwroot\lib\vuedevtools\**" />
+    <EmbeddedResource Remove="wwwroot\lib\vuedevtools\**" />
+    <None Remove="wwwroot\lib\vuedevtools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

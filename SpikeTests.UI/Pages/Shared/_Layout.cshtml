@@ -10,10 +10,12 @@
 
     <script type="importmap">
         {
-          "imports": {            
-            "vue": "@Url.Content("~/lib/vue/vue.esm-browser.js")",
+          "imports": {                        
             "vue-router": "@Url.Content("~/lib/vue/vue-router.esm-browser.js")",
-            "@@vue/devtools-api": "https://unpkg.com/browse/@@vue/devtools-api@@7.6.4/dist/index.js"
+            "@@vue/devtools-api": "@Url.Content("~/lib/vuedevtools-api/dist/index.js")",
+            "@@vue/devtools-kit": "@Url.Content("~/lib/vuedevtools-kit/dist/index.js")",
+            "@@vue/devtools-shared": "@Url.Content("~/lib/vuedevtools-shared/dist/index.js")",
+            "vue": "@Url.Content("~/lib/vue/vue.esm-browser.js")"
           }
         }
     </script>

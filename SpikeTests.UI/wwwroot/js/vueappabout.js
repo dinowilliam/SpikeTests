@@ -1,5 +1,5 @@
-import u, { defineComponent as i, openBlock as p, createElementBlock as m, createElementVNode as o, createTextVNode as a, toDisplayString as c, resolveComponent as _, createBlock as g, createApp as v } from "vue";
-const $ = i({
+import { defineComponent as i, version as u, openBlock as p, createElementBlock as m, createElementVNode as o, createTextVNode as a, toDisplayString as c, resolveComponent as _, createBlock as g, createApp as $ } from "vue";
+const v = i({
   name: "Info",
   props: {
     msgAbove: {
@@ -8,7 +8,7 @@ const $ = i({
     },
     msgUnder: {
       type: String,
-      default: "This website is running Vue " + u.version + "."
+      default: `This website is running Vue ${u}`
     }
   }
 }), d = (n, e) => {
@@ -31,7 +31,7 @@ function A(n, e, t, s, r, l) {
     ])
   ]);
 }
-const k = /* @__PURE__ */ d($, [["render", A]]), w = i({
+const k = /* @__PURE__ */ d(v, [["render", A]]), w = i({
   name: "App",
   components: {
     Info: k
@@ -42,5 +42,5 @@ function h(n, e, t, s, r, l) {
   return p(), g(f);
 }
 const x = /* @__PURE__ */ d(w, [["render", h]]);
-v(x).mount("#mainAppAbout");
+$(x).mount("#mainAppAbout");
 //# sourceMappingURL=vueappabout.js.map

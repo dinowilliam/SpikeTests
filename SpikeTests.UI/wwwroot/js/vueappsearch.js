@@ -1487,7 +1487,7 @@ var Sc = br((Oc, St) => {
     },
     methods: {
       async sendSearch() {
-        let e = {
+        var e = {
           Prompt: this.prompt
         };
         const t = {

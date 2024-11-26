@@ -15,14 +15,14 @@ export default defineComponent({
 
         async sendSearch() {
 
-            let search = {
+            var searchValue = {
                 Prompt: this.prompt
             };
 
             const requestOptions = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(search)
+                body: JSON.stringify(searchValue)
             };
 
             console.log(prompt);

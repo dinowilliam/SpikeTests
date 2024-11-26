@@ -13,21 +13,6 @@
     {
       "library": "vue-router@4.5.0",
       "destination": "wwwroot/lib/vue/"
-    },
-    {
-      "provider": "jsdelivr",
-      "library": "@vue/devtools-api@7.6.4",
-      "destination": "wwwroot/lib/vuedevtools-api/"
-    },
-    {
-      "provider": "jsdelivr",
-      "library": "@vue/devtools-kit@7.6.4",
-      "destination": "wwwroot/lib/vuedevtools-kit/"
-    },
-    {
-      "provider": "jsdelivr",
-      "library": "@vue/devtools-shared@7.6.4",
-      "destination": "wwwroot/lib/vuedevtools-shared/"
     }    
   ]
 }

@@ -41,11 +41,10 @@ export default defineConfig({
             ...currentConfig,
         },
         rollupOptions: {
-            external: ["vue", 'vue-router'],
+            external: ["vue"],
             output: {
                 globals: {
-                    vue: "Vue",            
-                    'vue-router': 'VueRouter',
+                    vue: "Vue"
                 },
                 assetFileNames: "css/" + process.env.LIB_NAME + ".[ext]",
             },

@@ -11,8 +11,9 @@
     <script type="importmap">
         {
           "imports": {            
-            "vue": "@Url.Content("~/lib/vue/vue.global.js")",
-            "vue-router": "@Url.Content("~/lib/vue/vue-router.esm-browser.js")"
+            "vue": "@Url.Content("~/lib/vue/vue.esm-browser.js")",
+            "vue-router": "@Url.Content("~/lib/vue/vue-router.esm-browser.js")",
+            "@@vue/devtools-api": "https://unpkg.com/browse/@@vue/devtools-api@@7.6.4/dist/index.js"
           }
         }
     </script>
@@ -50,8 +51,7 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "run-p type-check build-only",
     "test:unit": "vitest --environment jsdom",

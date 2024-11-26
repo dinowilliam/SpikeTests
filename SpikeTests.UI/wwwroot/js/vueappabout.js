@@ -43,4 +43,4 @@ function h(n, e, t, s, r, l) {
 }
 const x = /* @__PURE__ */ d(w, [["render", h]]);
 v(x).mount("#mainAppAbout");
-//# sourceMappingURL=vueappabout.mjs.map
+//# sourceMappingURL=vueappabout.js.map

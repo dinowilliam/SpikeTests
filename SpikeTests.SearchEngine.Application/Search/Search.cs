@@ -20,6 +20,7 @@ namespace SpikeTests.SearchEngine.Application.Search {
                 var searchResultsMapper =  new SearchResultsMapper();
                 searchResults = searchResultsMapper.SearchResulDTOToAppSearchResult(_searchService.GetAll());
             }
+            
             catch (Exception) {
                 return false;
             }

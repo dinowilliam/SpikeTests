@@ -30,6 +30,7 @@ namespace SpikeTests.SearchEngine.DAL.Infra.Contexts
             OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);       
+
     }
 }

@@ -23,7 +23,7 @@ namespace SpikeTests.SearchEngine.DAL.Infra.Contexts
             modelBuilder.HasAnnotation("Relational:Collation", "en_US.utf8");
 
             modelBuilder.Entity<LogPersistance>(entity => {
-                entity.ToTable("Log");
+                entity.ToTable("Search");
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 

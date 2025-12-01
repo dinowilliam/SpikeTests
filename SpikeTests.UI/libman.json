@@ -3,15 +3,15 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "twitter-bootstrap@5.3.3",
+      "library": "twitter-bootstrap@5.3.8",
       "destination": "wwwroot/lib/bootstrap/dist/"
     },
     {
-      "library": "vue@3.5.13",
+      "library": "vue@3.5.22",
       "destination": "wwwroot/lib/vue/"
     },
     {
-      "library": "vue-router@4.5.0",
+      "library": "vue-router@4.5.1",
       "destination": "wwwroot/lib/vue/"
     }    
   ]

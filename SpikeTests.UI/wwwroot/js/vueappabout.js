@@ -1,4 +1,4 @@
-import { defineComponent as i, version as u, openBlock as p, createElementBlock as m, createElementVNode as o, createTextVNode as a, toDisplayString as c, resolveComponent as _, createBlock as g, createApp as $ } from "vue";
+import { defineComponent as i, version as u, createElementBlock as m, openBlock as p, createElementVNode as o, createTextVNode as a, toDisplayString as c, resolveComponent as _, createBlock as g, createApp as $ } from "vue";
 const v = i({
   name: "Info",
   props: {
